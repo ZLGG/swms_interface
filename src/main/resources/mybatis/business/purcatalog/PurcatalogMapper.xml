@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.purcatalog.dao.PurcatalogDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.purcatalog.model.Purcatalog">
+    <!--@mbg.generated generated on Wed Apr 08 15:02:54 CST 2020.-->
+    <id column="PurCatalog_Guid" jdbcType="VARCHAR" property="purcatalogGuid" />
+    <result column="PurCatalog_P_Guid" jdbcType="VARCHAR" property="purcatalogPGuid" />
+    <result column="Year" jdbcType="DECIMAL" property="year" />
+    <result column="Region_Guid" jdbcType="VARCHAR" property="regionGuid" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="PurCatalog_Code" jdbcType="VARCHAR" property="purcatalogCode" />
+    <result column="Kind" jdbcType="VARCHAR" property="kind" />
+    <result column="PurCatalog_Type" jdbcType="VARCHAR" property="purcatalogType" />
+    <result column="Valid" jdbcType="DECIMAL" property="valid" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 08 15:02:54 CST 2020.-->
+    PurCatalog_Guid, PurCatalog_P_Guid, `Year`, Region_Guid, `Name`, PurCatalog_Code,
+    Kind, PurCatalog_Type, `Valid`, Interface_Code
+  </sql>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.buyplan.dao.BuyplansupplierDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.buyplan.model.Buyplansupplier">
+    <!--@mbg.generated generated on Tue Apr 14 19:03:24 CST 2020.-->
+    <!--@Table t_a_buyplansupplier-->
+    <id column="BuyPlan_Supplier_Guid" jdbcType="VARCHAR" property="buyplanSupplierGuid" />
+    <result column="BuyPlan_Guid" jdbcType="VARCHAR" property="buyplanGuid" />
+    <result column="Supplier_Guid" jdbcType="VARCHAR" property="supplierGuid" />
+    <result column="Supplier_CertCode" jdbcType="VARCHAR" property="supplierCertcode" />
+    <result column="Supplier_Name" jdbcType="VARCHAR" property="supplierName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Tue Apr 14 19:03:24 CST 2020.-->
+    BuyPlan_Supplier_Guid, BuyPlan_Guid, Supplier_Guid, Supplier_CertCode, Supplier_Name
+  </sql>
+</mapper>

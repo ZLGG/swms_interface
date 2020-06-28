@@ -1,0 +1,61 @@
+server:
+  port: 8082
+
+#Swagger
+swagger:
+    enable: true #开关
+
+logging:
+  level:
+    com.tk.mybatis.mapper.common.Mapper:  debug
+    com.mk.business: debug
+mybatis:
+  mapper-locations: classpath*:mybatis/**/*.xml
+  type-aliases-package: com.mk.business.test.model
+  configuration:
+    ##配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
+    map-underscore-to-camel-case: true
+    #配置JdbcTypeForNull, 字段为空时不判空时可以不指定字段类型
+    jdbc-type-for-null: 'null'
+    #切换不同的sql语句
+    database-id: mysql
+mapper:
+  mappers: tk.mybatis.mapper.common.Mapper
+  not-empty: false
+  identity: oracle
+
+# 分页配置
+pagehelper:
+   helperDialect: oracle
+   reasonable: true
+   supportMethodsArguments: true
+   pageSizeZero: true
+   params: count=countSql
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name:  com.mysql.jdbc.Driver
+#    url: jdbc:oracle:thin:@114.67.226.192:1521/orcl
+##    url: jdbc:oracle:thin:@127.0.0.1:1521/orcl
+#    url: jdbc:mysql://49.4.52.68:3306/swms?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+#    #jdbc:mysql://localhost:3306/gp_plat_dev?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+##    username: GPRESOURCE_TL
+##    password: GPRESOURCE_TL
+#    username: gpw-swms
+#    password: Develop@#Swms1
+    url: ${GP_DATABASE_IP:jdbc:mysql://49.4.52.68:3306/swms?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8}
+    username: ${GP_DATABASE_USER:gpw-swms}
+    password: ${GP_DATABASE_PASSWORD:Develop@#Swms1}
+
+#spring.datasource.url=
+    freemarker:
+      request-context-attribute: req  #req访问request
+      suffix: .ftl  #后缀名
+      content-type: text/html
+      enabled: true
+      cache: false #缓存配置
+      template-loader-path: classpath:/templates/ #模板加载路径 按需配置
+      charset: UTF-8 #编码格式
+      settings:
+        number_format: '0.##'   #数字格式化，无小数点

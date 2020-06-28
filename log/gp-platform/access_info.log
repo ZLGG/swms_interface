@@ -1,0 +1,138 @@
+2020-06-27 18:01:17 743  [main] INFO  com.mk.MallinterfaceApplication - Starting MallinterfaceApplication on DESKTOP-CRQA0KC with PID 2696 (D:\make\swms_interface\target\classes started by ZLG in D:\make\swms_interface)
+2020-06-27 18:01:17 743  [main] INFO  com.mk.MallinterfaceApplication - No active profile set, falling back to default profiles: default
+2020-06-27 18:01:17 790  [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@424fd310: startup date [Sat Jun 27 18:01:17 CST 2020]; root of context hierarchy
+2020-06-27 18:01:17 918  [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+2020-06-27 18:01:19 2924 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a76fe78b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-06-27 18:01:19 3283 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8082 (http)
+2020-06-27 18:01:19 3291 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-06-27 18:01:19 3292 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2020-06-27 18:01:19 3404 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-06-27 18:01:19 3404 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2614 ms
+2020-06-27 18:01:19 3589 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-06-27 18:01:19 3589 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-06-27 18:01:19 3589 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-06-27 18:01:19 3589 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-06-27 18:01:19 3589 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-06-27 18:01:22 5970 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateAcceptance.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.acceptance.controller.AcceptanceController.saveOrUpdateAcceptance(com.mk.utils.request.RequestInfoVo) throws java.lang.Exception
+2020-06-27 18:01:22 5972 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdatePurchaseAgency.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.agent.controller.AgentController.saveOrUpdatePurchaseAgency(com.mk.business.agent.model.Agent) throws java.text.ParseException
+2020-06-27 18:01:22 5972 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveBidExpert.do],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.bidexpert.controller.BidExpertController.saveOrUpdateBidExpert(com.mk.utils.request.RequestInfoVo) throws java.lang.Exception
+2020-06-27 18:01:22 5973 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateBudget.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.budget.controller.BudgetController.saveOrUpdateBudget(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5973 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateBuyitem.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.buyitem.controller.BuyitemController.saveOrUpdateBudget(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5973 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateBuyplan.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.buyplan.controller.BuyPlanController.saveOrUpdateBuyplan(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5974 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveCommentIndex.do],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.commentindex.controller.CommentIndexController.saveOrUpdateCommentIndex(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5974 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveCommentResult.do],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.commentresult.controller.CommentResultController.saveOrUpdateCommentResult(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5974 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateContract.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.contract.controller.ContractController.saveOrUpdateContract(com.mk.utils.request.RequestInfoVo) throws java.lang.Exception
+2020-06-27 18:01:22 5975 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateExpertInfo.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.expert.controller.ExpertController.saveOrUpdateExpertInfo(com.mk.business.expert.model.Expert)
+2020-06-27 18:01:22 5975 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateFinanceDept.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.financedept.controller.FinancedeptController.saveOrUpdateFinanceDept(com.mk.business.financedept.model.Financedept)
+2020-06-27 18:01:22 5975 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateFpSupplier],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.fpsupplier.controller.FpSuppllierController.saveOrUpdateFpSupplier(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5976 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateIntention],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.Intention.controller.IntentionController.saveOrUpdateIntention(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5976 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateLocation.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.location.controller.LocationController.saveOrUpdateLocation(com.mk.business.location.model.Location)
+2020-06-27 18:01:22 5976 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateNotice.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.notice.controller.NoticeController.saveOrUpdateNotice(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5978 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateOptionList.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.optionlist.controller.OptionlistController.saveOrUpdateOptionList(com.mk.business.optionlist.model.Optionlist)
+2020-06-27 18:01:22 5979 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateOptionType.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.optiontype.controller.OptiontypeController.saveOrUpdateOptionType(com.mk.business.optiontype.model.Optiontype)
+2020-06-27 18:01:22 5980 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateOrder],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.order.controller.OrderController.saveOrUpdateOrder(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5980 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateOrganization.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.organization.controller.OrganizationController.saveOrUpdateOrganization(com.mk.business.organization.model.Organization)
+2020-06-27 18:01:22 5980 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdatePayment.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.pay.controller.PayController.saveOrUpdatePayment(com.mk.utils.request.RequestInfoVo) throws java.lang.Exception
+2020-06-27 18:01:22 5981 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdatePlatform.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.platform.controller.PlatformController.saveOrUpdatePlatform(com.mk.business.platform.model.Platform)
+2020-06-27 18:01:22 5981 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdatePlatformType.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.platformtype.controller.PlatformtypeController.saveOrUpdatePlatformType(com.mk.business.platformtype.model.Platformtype)
+2020-06-27 18:01:22 5982 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateProject.do],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.project.controller.ProjectController.saveOrUpdateProject(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5982 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveProjectResponse.do],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.projpectresponse.controller.ProjectResponseController.saveOrUpdateProjectResponse(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5982 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdatePurCatalog.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.purcatalog.controller.PurCatalogController.saveOrUpdatePurCatalog(com.mk.business.purcatalog.model.Purcatalog)
+2020-06-27 18:01:22 5983 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateRegion.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.region.controller.RegionClass.saveOrUpdateRegion(com.mk.business.region.model.Region)
+2020-06-27 18:01:22 5983 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateResource.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.resource.controller.ResourceController.saveOrUpdateResource(com.mk.business.resource.model.Resource)
+2020-06-27 18:01:22 5984 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateSupplierInfo.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.supplier.controller.SupplierController.saveOrUpdateSupplierInfo(com.mk.business.supplier.model.Supplier)
+2020-06-27 18:01:22 5984 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateTrustinfo],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.trustinfo.controller.TrustinfoController.saveOrUpdateTrustinfo(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5984 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateYear.do],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.model.ReturnMessage com.mk.business.year.controller.YearController.saveOrUpdateYear(com.mk.business.year.model.Year)
+2020-06-27 18:01:22 5985 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/saveOrUpdateZcyBuyplan],methods=[POST],consumes=[application/json;charset=utf-8]}" onto public com.mk.utils.request.ResponseInfoVo com.mk.business.zcyBuyplan.controller.ZcyBuyplanController.saveOrUpdateZcyBuyplan(com.mk.utils.request.RequestInfoVo)
+2020-06-27 18:01:22 5985 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-06-27 18:01:22 5989 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2020-06-27 18:01:22 5990 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2020-06-27 18:01:22 5990 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2020-06-27 18:01:22 5995 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-06-27 18:01:22 5995 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-06-27 18:01:22 6355 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@424fd310: startup date [Sat Jun 27 18:01:17 CST 2020]; root of context hierarchy
+2020-06-27 18:01:22 6408 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-27 18:01:22 6408 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-27 18:01:22 6450 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-06-27 18:01:22 6693 [main] INFO  o.s.u.f.SpringTemplateLoader - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@424fd310: startup date [Sat Jun 27 18:01:17 CST 2020]; root of context hierarchy] and template loader path [classpath:/templates/]
+2020-06-27 18:01:22 6694 [main] INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2020-06-27 18:01:23 6953 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-06-27 18:01:23 6956 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-06-27 18:01:23 6965 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-06-27 18:01:23 6969 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 2147483647
+2020-06-27 18:01:23 6969 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-06-27 18:01:23 6987 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-06-27 18:01:23 7001 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-06-27 18:01:23 7135 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: saveOrUpdateBudgetUsingPOST_1
+2020-06-27 18:01:23 7301 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+2020-06-27 18:01:23 7315 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+2020-06-27 18:01:23 7326 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-06-27 18:01:23 7344 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8082 (http)
+2020-06-27 18:01:23 7350 [main] INFO  com.mk.MallinterfaceApplication - Started MallinterfaceApplication in 6.932 seconds (JVM running for 9.251)
+2020-06-27 18:14:02 766325 [http-nio-8082-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-06-27 18:14:02 766325 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-06-27 18:14:02 766353 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
+2020-06-27 18:14:02 766461 [http-nio-8082-exec-1] INFO  c.a.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-06-27 18:14:03 767024 [http-nio-8082-exec-1] INFO  c.m.b.agent.impl.AgentServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:03 767137 [http-nio-8082-exec-1] INFO  c.m.b.agent.impl.AgentServiceImpl - 开始: 新增数据
+2020-06-27 18:14:03 767480 [http-nio-8082-exec-3] INFO  c.m.b.agent.impl.AgentServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:03 767547 [http-nio-8082-exec-3] INFO  c.m.b.agent.impl.AgentServiceImpl - 开始: 新增数据
+2020-06-27 18:14:04 767891 [http-nio-8082-exec-2] INFO  c.m.b.agent.impl.AgentServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:04 767958 [http-nio-8082-exec-2] INFO  c.m.b.agent.impl.AgentServiceImpl - 开始: 新增数据
+2020-06-27 18:14:04 768438 [http-nio-8082-exec-4] INFO  c.m.b.agent.impl.AgentServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:04 768503 [http-nio-8082-exec-4] INFO  c.m.b.agent.impl.AgentServiceImpl - 开始: 新增数据
+2020-06-27 18:14:15 779072 [http-nio-8082-exec-9] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:15 779137 [http-nio-8082-exec-9] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:19 782970 [http-nio-8082-exec-1] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:19 783032 [http-nio-8082-exec-1] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:23 786949 [http-nio-8082-exec-2] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:23 787012 [http-nio-8082-exec-2] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:27 790976 [http-nio-8082-exec-5] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:27 791039 [http-nio-8082-exec-5] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:31 795220 [http-nio-8082-exec-7] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:31 795278 [http-nio-8082-exec-7] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:35 799348 [http-nio-8082-exec-9] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:35 799410 [http-nio-8082-exec-9] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:38 802540 [http-nio-8082-exec-1] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:38 802599 [http-nio-8082-exec-1] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:42 806465 [http-nio-8082-exec-3] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:42 806525 [http-nio-8082-exec-3] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:44 808604 [http-nio-8082-exec-2] INFO  c.m.b.expert.impl.ExpertServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:44 808661 [http-nio-8082-exec-2] INFO  c.m.b.expert.impl.ExpertServiceImpl - 开始: 新增数据
+2020-06-27 18:14:46 810463 [http-nio-8082-exec-4] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:46 810522 [http-nio-8082-exec-4] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:50 814052 [http-nio-8082-exec-5] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:50 814110 [http-nio-8082-exec-5] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:53 817435 [http-nio-8082-exec-6] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:53 817496 [http-nio-8082-exec-6] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:54 818255 [http-nio-8082-exec-7] INFO  c.m.b.expert.impl.ExpertServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:54 818312 [http-nio-8082-exec-7] INFO  c.m.b.expert.impl.ExpertServiceImpl - 开始: 新增数据
+2020-06-27 18:14:56 820519 [http-nio-8082-exec-8] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:56 820581 [http-nio-8082-exec-8] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:14:59 822956 [http-nio-8082-exec-9] INFO  c.m.b.expert.impl.ExpertServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:14:59 823018 [http-nio-8082-exec-9] INFO  c.m.b.expert.impl.ExpertServiceImpl - 开始: 新增数据
+2020-06-27 18:15:00 823727 [http-nio-8082-exec-10] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:00 823786 [http-nio-8082-exec-10] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:15:03 827492 [http-nio-8082-exec-1] INFO  c.m.b.expert.impl.ExpertServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:03 827505 [http-nio-8082-exec-3] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:03 827552 [http-nio-8082-exec-1] INFO  c.m.b.expert.impl.ExpertServiceImpl - 开始: 新增数据
+2020-06-27 18:15:03 827570 [http-nio-8082-exec-3] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:15:07 830723 [http-nio-8082-exec-7] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:07 830789 [http-nio-8082-exec-7] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:15:10 833932 [http-nio-8082-exec-10] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:10 833997 [http-nio-8082-exec-10] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:15:12 836584 [http-nio-8082-exec-4] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:12 836653 [http-nio-8082-exec-4] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:15:15 839256 [http-nio-8082-exec-7] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:15 839320 [http-nio-8082-exec-7] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:15:21 845244 [http-nio-8082-exec-3] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:21 845302 [http-nio-8082-exec-3] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:15:24 848217 [http-nio-8082-exec-2] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:24 848281 [http-nio-8082-exec-2] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据
+2020-06-27 18:15:25 848941 [http-nio-8082-exec-8] INFO  c.m.b.c.impl.ContractServiceImpl - 开始：请求参数校验
+2020-06-27 18:15:25 849105 [http-nio-8082-exec-8] INFO  c.m.b.c.impl.ContractServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:25 849629 [http-nio-8082-exec-8] INFO  c.m.b.c.impl.ContractServiceImpl - 新增/更新合同成功,设置返回信息!
+2020-06-27 18:15:26 850067 [http-nio-8082-exec-7] INFO  c.m.b.agent.impl.AgentServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:26 850133 [http-nio-8082-exec-7] INFO  c.m.b.agent.impl.AgentServiceImpl - 开始: 新增数据
+2020-06-27 18:15:27 851639 [http-nio-8082-exec-9] INFO  c.m.b.s.impl.SupplierServiceImpl - 判断数据是否存在(存在则更新，不存在插入)
+2020-06-27 18:15:27 851698 [http-nio-8082-exec-9] INFO  c.m.b.s.impl.SupplierServiceImpl - 开始: 新增数据

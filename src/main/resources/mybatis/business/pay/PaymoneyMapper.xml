@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.pay.dao.PaymoneyDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.pay.model.Paymoney">
+    <!--@mbg.generated generated on Wed Apr 15 16:54:27 CST 2020.-->
+    <!--@Table t_a_paymoney-->
+    <id column="Pay_Detail_Guid" jdbcType="VARCHAR" property="payDetailGuid" />
+    <result column="Pay_Guid" jdbcType="VARCHAR" property="payGuid" />
+    <result column="Contract_Money_Guid" jdbcType="VARCHAR" property="contractMoneyGuid" />
+    <result column="Contract_Guid" jdbcType="VARCHAR" property="contractGuid" />
+    <result column="BuyPlan_Guid" jdbcType="VARCHAR" property="buyplanGuid" />
+    <result column="BuyItem_Guid" jdbcType="VARCHAR" property="buyitemGuid" />
+    <result column="Resource_Guid" jdbcType="VARCHAR" property="resourceGuid" />
+    <result column="Budget_Guid" jdbcType="VARCHAR" property="budgetGuid" />
+    <result column="Money" jdbcType="DECIMAL" property="money" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 15 16:54:27 CST 2020.-->
+    Pay_Detail_Guid, Pay_Guid, Contract_Money_Guid, Contract_Guid, BuyPlan_Guid, BuyItem_Guid,
+    Resource_Guid, Budget_Guid, Money, Interface_Code, Data_Resource
+  </sql>
+</mapper>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.agent.dao.AgentDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.agent.model.Agent">
+    <id column="Agent_Guid" jdbcType="VARCHAR" property="agentGuid" />
+    <result column="Agent_Code" jdbcType="VARCHAR" property="agentCode" />
+    <result column="Agent_Name" jdbcType="VARCHAR" property="agentName" />
+    <result column="Agent_Type" jdbcType="DECIMAL" property="agentType" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="Linkman" jdbcType="VARCHAR" property="linkman" />
+    <result column="Telphone" jdbcType="VARCHAR" property="telphone" />
+    <result column="Fax" jdbcType="VARCHAR" property="fax" />
+    <result column="Postcode" jdbcType="VARCHAR" property="postcode" />
+    <result column="Pause_Date" jdbcType="TIMESTAMP" property="pauseDate" />
+    <result column="Recover_Date" jdbcType="TIMESTAMP" property="recoverDate" />
+    <result column="Pause_Reason" jdbcType="VARCHAR" property="pauseReason" />
+    <result column="Biz_Valid" jdbcType="INTEGER" property="bizValid" />
+    <result column="Biz_Date" jdbcType="DATE" property="bizDate" />
+    <result column="Biz_Time_Stamp" jdbcType="TIMESTAMP" property="bizTimeStamp" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+    <result column="Pur_Activity" jdbcType="INTEGER" property="purActivity" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Agent_Guid, Agent_Code, Agent_Name, Agent_Type, Address, Linkman, Telphone, Fax, 
+    Postcode, Pause_Date, Recover_Date, Pause_Reason, Biz_Valid, Biz_Date, Biz_Time_Stamp, 
+    Interface_Code, Data_Resource,Pur_Activity
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_d_agent
+    where Agent_Guid = #{agentGuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_d_agent
+    where Agent_Guid = #{agentGuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mk.business.agent.model.Agent" >
+    insert into t_d_agent (Agent_Guid,Agent_Code, Agent_Name, Agent_Type,
+      Address, Linkman, Telphone, 
+      Fax, Postcode, Pause_Date, 
+      Recover_Date, Pause_Reason, Biz_Valid, 
+      Biz_Date, Biz_Time_Stamp, Interface_Code, 
+      Data_Resource,Pur_Activity)
+    values (#{agentGuid,jdbcType=VARCHAR},#{agentCode,jdbcType=VARCHAR}, #{agentName,jdbcType=VARCHAR}, #{agentType,jdbcType=DECIMAL},
+      #{address,jdbcType=VARCHAR}, #{linkman,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, 
+      #{fax,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{pauseDate,jdbcType=TIMESTAMP}, 
+      #{recoverDate,jdbcType=TIMESTAMP}, #{pauseReason,jdbcType=VARCHAR}, #{bizValid,jdbcType=INTEGER}, 
+      #{bizDate,jdbcType=DATE}, #{bizTimeStamp,jdbcType=TIMESTAMP}, #{interfaceCode,jdbcType=VARCHAR}, 
+      #{dataResource,jdbcType=VARCHAR},#{purActivity,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="Agent_Guid" keyProperty="agentGuid" parameterType="com.mk.business.agent.model.Agent" useGeneratedKeys="true">
+    insert into t_d_agent
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="agentCode != null">
+        Agent_Code,
+      </if>
+      <if test="agentName != null">
+        Agent_Name,
+      </if>
+      <if test="agentType != null">
+        Agent_Type,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="linkman != null">
+        Linkman,
+      </if>
+      <if test="telphone != null">
+        Telphone,
+      </if>
+      <if test="fax != null">
+        Fax,
+      </if>
+      <if test="postcode != null">
+        Postcode,
+      </if>
+      <if test="pauseDate != null">
+        Pause_Date,
+      </if>
+      <if test="recoverDate != null">
+        Recover_Date,
+      </if>
+      <if test="pauseReason != null">
+        Pause_Reason,
+      </if>
+      <if test="bizValid != null">
+        Biz_Valid,
+      </if>
+      <if test="bizDate != null">
+        Biz_Date,
+      </if>
+      <if test="bizTimeStamp != null">
+        Biz_Time_Stamp,
+      </if>
+      <if test="interfaceCode != null">
+        Interface_Code,
+      </if>
+      <if test="dataResource != null">
+        Data_Resource,
+      </if>
+      <if test="purActivity != null">
+        Pur_Activity,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="agentCode != null">
+        #{agentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agentName != null">
+        #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="agentType != null">
+        #{agentType,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null">
+        #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="pauseDate != null">
+        #{pauseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recoverDate != null">
+        #{recoverDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pauseReason != null">
+        #{pauseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="bizValid != null">
+        #{bizValid,jdbcType=INTEGER},
+      </if>
+      <if test="bizDate != null">
+        #{bizDate,jdbcType=DATE},
+      </if>
+      <if test="bizTimeStamp != null">
+        #{bizTimeStamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interfaceCode != null">
+        #{interfaceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataResource != null">
+        #{dataResource,jdbcType=VARCHAR},
+      </if>
+      <if test="purActivity != null">
+        #{purActivity,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mk.business.agent.model.Agent">
+    update t_d_agent
+    <set>
+      <if test="purActivity != null">
+        Pur_Activity = #{purActivity,jdbcType=INTEGER},
+      </if>
+      <if test="agentCode != null">
+        Agent_Code = #{agentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agentName != null">
+        Agent_Name = #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="agentType != null">
+        Agent_Type = #{agentType,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        Linkman = #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null">
+        Telphone = #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        Fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        Postcode = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="pauseDate != null">
+        Pause_Date = #{pauseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recoverDate != null">
+        Recover_Date = #{recoverDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pauseReason != null">
+        Pause_Reason = #{pauseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="bizValid != null">
+        Biz_Valid = #{bizValid,jdbcType=INTEGER},
+      </if>
+      <if test="bizDate != null">
+        Biz_Date = #{bizDate,jdbcType=DATE},
+      </if>
+      <if test="bizTimeStamp != null">
+        Biz_Time_Stamp = #{bizTimeStamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interfaceCode != null">
+        Interface_Code = #{interfaceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataResource != null">
+        Data_Resource = #{dataResource,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Agent_Guid = #{agentGuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mk.business.agent.model.Agent">
+    update t_d_agent
+    set
+    Pur_Activity = #{purActivity,jdbcType=INTEGER},
+    Agent_Code = #{agentCode,jdbcType=VARCHAR},
+      Agent_Name = #{agentName,jdbcType=VARCHAR},
+      Agent_Type = #{agentType,jdbcType=DECIMAL},
+      Address = #{address,jdbcType=VARCHAR},
+      Linkman = #{linkman,jdbcType=VARCHAR},
+      Telphone = #{telphone,jdbcType=VARCHAR},
+      Fax = #{fax,jdbcType=VARCHAR},
+      Postcode = #{postcode,jdbcType=VARCHAR},
+      Pause_Date = #{pauseDate,jdbcType=TIMESTAMP},
+      Recover_Date = #{recoverDate,jdbcType=TIMESTAMP},
+      Pause_Reason = #{pauseReason,jdbcType=VARCHAR},
+      Biz_Valid = #{bizValid,jdbcType=INTEGER},
+      Biz_Date = #{bizDate,jdbcType=DATE},
+      Biz_Time_Stamp = #{bizTimeStamp,jdbcType=TIMESTAMP},
+      Interface_Code = #{interfaceCode,jdbcType=VARCHAR},
+      Data_Resource = #{dataResource,jdbcType=VARCHAR}
+    where Agent_Guid = #{agentGuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

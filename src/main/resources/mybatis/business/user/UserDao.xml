@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.user.dao.UserDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.user.model.User">
+    <!--@mbg.generated generated on Fri May 15 16:56:42 CST 2020.-->
+    <!--@Table t_user-->
+    <id column="User_Guid" jdbcType="VARCHAR" property="userGuid" />
+    <result column="User_Name" jdbcType="VARCHAR" property="userName" />
+    <result column="Admin" jdbcType="INTEGER" property="admin" />
+    <result column="Region_Guid" jdbcType="VARCHAR" property="regionGuid" />
+    <result column="User_Type" jdbcType="VARCHAR" property="userType" />
+    <result column="Login_Name" jdbcType="VARCHAR" property="loginName" />
+    <result column="Login_Type" jdbcType="VARCHAR" property="loginType" />
+    <result column="CA_Key" jdbcType="VARCHAR" property="caKey" />
+    <result column="Change_Password" jdbcType="INTEGER" property="changePassword" />
+    <result column="Retry_Number" jdbcType="INTEGER" property="retryNumber" />
+    <result column="QQ_Code" jdbcType="VARCHAR" property="qqCode" />
+    <result column="Micro_Msg_Code" jdbcType="VARCHAR" property="microMsgCode" />
+    <result column="Telphone" jdbcType="VARCHAR" property="telphone" />
+    <result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="Regulators_Guid" jdbcType="VARCHAR" property="regulatorsGuid" />
+    <result column="Org_Guid" jdbcType="VARCHAR" property="orgGuid" />
+    <result column="Finance_Dept_Guid" jdbcType="VARCHAR" property="financeDeptGuid" />
+    <result column="Agent_Guid" jdbcType="VARCHAR" property="agentGuid" />
+    <result column="Supplier_Guid" jdbcType="VARCHAR" property="supplierGuid" />
+    <result column="Expert_Guid" jdbcType="VARCHAR" property="expertGuid" />
+    <result column="Bank_Guid" jdbcType="VARCHAR" property="bankGuid" />
+    <result column="Dorder" jdbcType="DECIMAL" property="dorder" />
+    <result column="Valid" jdbcType="VARCHAR" property="valid" />
+    <result column="Modi_User" jdbcType="VARCHAR" property="modiUser" />
+    <result column="Modi_Date" jdbcType="TIMESTAMP" property="modiDate" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Fri May 15 16:56:42 CST 2020.-->
+    User_Guid, User_Name, `Admin`, Region_Guid, User_Type, Login_Name, Login_Type, CA_Key,
+    Change_Password, Retry_Number, QQ_Code, Micro_Msg_Code, Telphone, Mobile, Email,
+    `PASSWORD`, Regulators_Guid, Org_Guid, Finance_Dept_Guid, Agent_Guid, Supplier_Guid,
+    Expert_Guid, Bank_Guid, Dorder, `Valid`, Modi_User, Modi_Date, Remark, ID_CARD
+  </sql>
+</mapper>

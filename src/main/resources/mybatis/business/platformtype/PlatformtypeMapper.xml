@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.platformtype.dao.PlatformtypeDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.platformtype.model.Platformtype">
+    <!--@mbg.generated generated on Wed Apr 08 15:35:35 CST 2020.-->
+    <id column="Platform_Type_Guid" jdbcType="VARCHAR" property="platformTypeGuid" />
+    <result column="Platform_Type_Name" jdbcType="VARCHAR" property="platformTypeName" />
+    <result column="DOrder" jdbcType="DECIMAL" property="dorder" />
+    <result column="Valid" jdbcType="DECIMAL" property="valid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 08 15:35:35 CST 2020.-->
+    Platform_Type_Guid, Platform_Type_Name, DOrder, `Valid`
+  </sql>
+</mapper>

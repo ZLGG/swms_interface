@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.region.dao.RegionDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.region.model.Region">
+    <!--@mbg.generated generated on Wed Apr 08 14:23:50 CST 2020.-->
+    <id column="Region_Guid" jdbcType="VARCHAR" property="regionGuid" />
+    <result column="Region_P_Guid" jdbcType="VARCHAR" property="regionPGuid" />
+    <result column="Region_Name" jdbcType="VARCHAR" property="regionName" />
+    <result column="Short_Name" jdbcType="VARCHAR" property="shortName" />
+    <result column="Region_Code" jdbcType="VARCHAR" property="regionCode" />
+    <result column="Valid" jdbcType="DECIMAL" property="valid" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 08 14:23:50 CST 2020.-->
+    Region_Guid, Region_P_Guid, Region_Name, Short_Name, Region_Code, `Valid`, Interface_Code
+  </sql>
+</mapper>

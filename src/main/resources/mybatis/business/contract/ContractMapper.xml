@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.contract.dao.ContractDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.contract.model.Contract">
+    <!--@mbg.generated generated on Fri May 08 13:39:36 CST 2020.-->
+    <!--@Table t_a_contract-->
+    <id column="Contract_Guid" jdbcType="VARCHAR" property="contractGuid" />
+    <result column="Contract_State" jdbcType="VARCHAR" property="contractState" />
+    <result column="Contract_Archive_Code" jdbcType="VARCHAR" property="contractArchiveCode" />
+    <result column="Contract_Code" jdbcType="VARCHAR" property="contractCode" />
+    <result column="Region_Guid" jdbcType="VARCHAR" property="regionGuid" />
+    <result column="Year" jdbcType="DECIMAL" property="year" />
+    <result column="Org_Guid" jdbcType="VARCHAR" property="orgGuid" />
+    <result column="Finance_Dept_Guid" jdbcType="VARCHAR" property="financeDeptGuid" />
+    <result column="BuyPlan_Guid" jdbcType="VARCHAR" property="buyplanGuid" />
+    <result column="BuyPlan_Money" jdbcType="DECIMAL" property="buyplanMoney" />
+    <result column="Kind" jdbcType="VARCHAR" property="kind" />
+    <result column="PurCatalog_Type" jdbcType="VARCHAR" property="purcatalogType" />
+    <result column="Platform_Type_Guid" jdbcType="VARCHAR" property="platformTypeGuid" />
+    <result column="Platform_Guid" jdbcType="VARCHAR" property="platformGuid" />
+    <result column="Is_Direct_Buy" jdbcType="DECIMAL" property="isDirectBuy" />
+    <result column="PurMethod" jdbcType="VARCHAR" property="purmethod" />
+    <result column="Final_PurMethod" jdbcType="VARCHAR" property="finalPurmethod" />
+    <result column="Agent_Guid" jdbcType="VARCHAR" property="agentGuid" />
+    <result column="Agent_Code" jdbcType="VARCHAR" property="agentCode" />
+    <result column="Agent_Name" jdbcType="VARCHAR" property="agentName" />
+    <result column="Agent_Type" jdbcType="VARCHAR" property="agentType" />
+    <result column="Buy_Date" jdbcType="TIMESTAMP" property="buyDate" />
+    <result column="Project_Guid" jdbcType="VARCHAR" property="projectGuid" />
+    <result column="Project_Code" jdbcType="VARCHAR" property="projectCode" />
+    <result column="Project_Name" jdbcType="VARCHAR" property="projectName" />
+    <result column="Bid_Guid" jdbcType="VARCHAR" property="bidGuid" />
+    <result column="Bid_Code" jdbcType="VARCHAR" property="bidCode" />
+    <result column="Bid_Name" jdbcType="VARCHAR" property="bidName" />
+    <result column="Total_Money" jdbcType="DECIMAL" property="totalMoney" />
+    <result column="Sign_Date" jdbcType="TIMESTAMP" property="signDate" />
+    <result column="Archive_Date" jdbcType="TIMESTAMP" property="archiveDate" />
+    <result column="Contract_Pay_Type" jdbcType="VARCHAR" property="contractPayType" />
+    <result column="Pay_Count" jdbcType="DECIMAL" property="payCount" />
+    <result column="Start_Date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="End_Date" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="Mortgage" jdbcType="DECIMAL" property="mortgage" />
+    <result column="Imports" jdbcType="DECIMAL" property="imports" />
+    <result column="PPP" jdbcType="DECIMAL" property="ppp" />
+    <result column="Secret" jdbcType="DECIMAL" property="secret" />
+    <result column="Supplier_Size" jdbcType="VARCHAR" property="supplierSize" />
+    <result column="Location_Guid" jdbcType="VARCHAR" property="locationGuid" />
+    <result column="Supplier_Features" jdbcType="VARCHAR" property="supplierFeatures" />
+    <result column="Biz_Valid" jdbcType="INTEGER" property="bizValid" />
+    <result column="Biz_Time_Stamp" jdbcType="TIMESTAMP" property="bizTimeStamp" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+    <result column="Biz_Date" jdbcType="DATE" property="bizDate" />
+    <result column="Contract_PGuid" jdbcType="VARCHAR" property="contractPguid" />
+    <result column="Contract_Create_Type" jdbcType="INTEGER" property="contractCreateType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Fri May 08 13:39:36 CST 2020.-->
+    Contract_Guid, Contract_State, Contract_Archive_Code, Contract_Code, Region_Guid,
+    `Year`, Org_Guid, Finance_Dept_Guid, BuyPlan_Guid, BuyPlan_Money, Kind, PurCatalog_Type,
+    Platform_Type_Guid, Platform_Guid, Is_Direct_Buy, PurMethod, Final_PurMethod, Agent_Guid,
+    Agent_Code, Agent_Name, Agent_Type, Buy_Date, Project_Guid, Project_Code, Project_Name,
+    Bid_Guid, Bid_Code, Bid_Name, Total_Money, Sign_Date, Archive_Date, Contract_Pay_Type, Pay_Count,
+    Start_Date, End_Date, Mortgage, Imports, PPP, Secret, Supplier_Size, Location_Guid,
+    Supplier_Features, Biz_Valid, Biz_Time_Stamp, Interface_Code, Data_Resource, Biz_Date,
+    Contract_PGuid, Contract_Create_Type
+  </sql>
+
+  <select id="getContract" parameterType="map" resultType="int">
+        select count(1) from t_a_contract where Interface_Code =#{interfaceCode} and Data_Resource= #{dataResource}
+  </select>
+
+  <select id="getContractMoney" parameterType="map" resultType="int">
+        select count(1) from t_a_contractmoney where Interface_Code =#{interfaceCode} and Data_Resource= #{dataResource}
+  </select>
+</mapper>

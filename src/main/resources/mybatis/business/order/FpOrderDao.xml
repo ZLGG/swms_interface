@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.order.dao.FpOrderDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.order.model.FpOrder">
+    <id column="Order_Id" jdbcType="VARCHAR" property="orderId" />
+    <result column="Purchaser_Org_Name" jdbcType="VARCHAR" property="purchaserOrgName" />
+    <result column="Purchaser_Org_Budget_Code" jdbcType="VARCHAR" property="purchaserOrgBudgetCode" />
+    <result column="District_Code" jdbcType="VARCHAR" property="districtCode" />
+    <result column="Amount" jdbcType="DECIMAL" property="amount" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Order_Id, Purchaser_Org_Name, Purchaser_Org_Budget_Code, District_Code, Amount, Data_Resource
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fp_order
+    where Order_Id = #{orderId,jdbcType=VARCHAR}
+  </select>
+  <select id="getOrderByInterfaceCode" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from t_fp_order
+    where Interface_Code = #{interfaceCode} and Data_Resource = #{dataResource}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_fp_order
+    where Order_Id = #{orderId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="Order_Id" keyProperty="orderId" parameterType="com.mk.business.order.model.FpOrder" useGeneratedKeys="true">
+    insert into t_fp_order (Order_Id,Purchaser_Org_Name, Purchaser_Org_Budget_Code,
+      District_Code, Amount, Data_Resource
+      )
+    values (#{orderId,jdbcType=VARCHAR}, #{purchaserOrgName,jdbcType=VARCHAR}, #{purchaserOrgBudgetCode,jdbcType=VARCHAR},
+      #{districtCode,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{dataResource,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="Order_Id" keyProperty="orderId" parameterType="com.mk.business.order.model.FpOrder" useGeneratedKeys="true">
+    insert into t_fp_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="purchaserOrgName != null">
+        Purchaser_Org_Name,
+      </if>
+      <if test="purchaserOrgBudgetCode != null">
+        Purchaser_Org_Budget_Code,
+      </if>
+      <if test="districtCode != null">
+        District_Code,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="dataResource != null">
+        Data_Resource,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="purchaserOrgName != null">
+        #{purchaserOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaserOrgBudgetCode != null">
+        #{purchaserOrgBudgetCode,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null">
+        #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="dataResource != null">
+        #{dataResource,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mk.business.order.model.FpOrder">
+    update t_fp_order
+    <set>
+      <if test="purchaserOrgName != null">
+        Purchaser_Org_Name = #{purchaserOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaserOrgBudgetCode != null">
+        Purchaser_Org_Budget_Code = #{purchaserOrgBudgetCode,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null">
+        District_Code = #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="dataResource != null">
+        Data_Resource = #{dataResource,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Order_Id = #{orderId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mk.business.order.model.FpOrder">
+    update t_fp_order
+    set Purchaser_Org_Name = #{purchaserOrgName,jdbcType=VARCHAR},
+      Purchaser_Org_Budget_Code = #{purchaserOrgBudgetCode,jdbcType=VARCHAR},
+      District_Code = #{districtCode,jdbcType=VARCHAR},
+      Amount = #{amount,jdbcType=DECIMAL},
+      Data_Resource = #{dataResource,jdbcType=VARCHAR}
+    where Order_Id = #{orderId,jdbcType=VARCHAR}
+  </update>
+</mapper>

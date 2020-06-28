@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.projpectresponse.dao.ProjectResponseDao">
+
+
+    <delete id="delBidSupplierInfo" parameterType="string">
+        delete from t_a_bidsupplierinfo
+        where Response_Guid = #{responseGuid}
+    </delete>
+    <delete id="delProjectResponse" parameterType="string">
+        delete from t_a_projectresponse
+        where Project_Guid = #{projectGuid}
+    </delete>
+    <delete id="delNonexistentProjectResponse">
+        delete from t_a_projectresponse
+        where Project_Guid = #{projectGuid} and Data_Resource = #{dataResource}
+        and Response_Guid not in
+        <foreach collection="projectResponseIds" item="projectResponseId" separator="," open="(" close=")">
+            #{projectResponseId}
+        </foreach>
+    </delete>
+
+    <delete id="delAllProjectResponseByProject">
+        delete from t_a_projectresponse where Project_Guid = #{projectGuid} and Data_Resource = #{dataResource}
+    </delete>
+
+    <select id="getProjectResponseById" resultType="com.mk.business.projpectresponse.model.ProjectResponse" parameterType="string">
+        select * from t_a_projectresponse
+        where Response_Guid = #{responseGuid}
+    </select>
+
+    <select id="getProjectResponseGuid" resultType="java.lang.String" parameterType="map">
+        select Response_Guid from t_a_projectresponse where Project_Guid = #{projectGuid} and BidItem_Guid = #{bidItemGuid}
+    </select>
+
+    <select id="getProjectResponseGuidByProjectguid" resultType="java.lang.String" parameterType="string">
+        select Response_Guid from t_a_projectresponse where Project_Guid = #{projectGuid}
+    </select>
+    <select id="getCommentIndexGuid" resultType="java.lang.String" parameterType="map">
+        select CommentIndex_Guid from t_a_commentindex where Bid_Guid = #{bidItemGuid} and Project_Guid = #{projectGuid}
+    </select>
+
+    <select id="getProjectResponse" resultType="com.mk.business.projpectresponse.model.ProjectResponse" parameterType="map">
+        select * from t_a_projectresponse where Interface_Code = #{interfaceCode} and Data_Resource = #{dataResource}
+    </select>
+    <select id="getLocation" resultType="java.lang.String" parameterType="string">
+        select Location_Guid from t_d_location where Location_Guid = #{locationGuid}
+    </select>
+    <select id="getSupplier" resultType="java.lang.String" parameterType="string">
+        select Supplier_Guid from t_d_supplier where Supplier_Guid = #{supplierGuid}
+    </select>
+
+    <update id="updateProjectResponse" parameterType="com.mk.business.projpectresponse.model.ProjectResponse">
+        update t_a_projectresponse
+        set Project_Guid = #{projectGuid},BidItem_Guid = #{bidItemGuid},
+        Supplier_Name = #{supplierName},Is_Union = #{isUnion},Trustee_Name = #{trusteeName},
+        Mobile = #{mobile},Deposit_Pay_Account_Name = #{depositPayAccountName},Deposit_Pay_Account = #{depositPayAccount},
+        Deposit_Pay_Time = #{depositPayTime},
+        Deposit_Pay_Money = #{depositPayMoney},Is_Disable = #{isDisable},
+        Disable_Reason = #{disableReason},Location_Guid = #{locationGuid},Supplier_Size = #{supplierSize},
+        Supplier_Features = #{supplierFeatures},Price_Discount = #{priceDiscount},Interface_Code = #{interfaceCode},Data_Resource = #{dataResource}
+        where Response_Guid = #{responseGuid}
+    </update>
+
+    <insert id="insertProjectResponse" parameterType="com.mk.business.projpectresponse.model.ProjectResponse">
+        insert into t_a_projectresponse
+        (Response_Guid, Project_Guid, BidItem_Guid, Supplier_Name, Is_Union, Trustee_Name, Mobile,
+         Deposit_Pay_Account_Name, Deposit_Pay_Account, Deposit_Pay_Time, Deposit_Pay_Money,
+         Is_Disable, Disable_Reason, Location_Guid, Supplier_Size, Supplier_Features,
+         Price_Discount, Interface_Code, Data_Resource)
+        values
+        (#{responseGuid},#{projectGuid},#{bidItemGuid},#{supplierName},#{isUnion},
+        #{trusteeName},#{mobile},#{depositPayAccountName},#{depositPayAccount},#{depositPayTime},#{depositPayMoney},
+        #{isDisable},#{disableReason},#{locationGuid},
+        #{supplierSize},#{supplierFeatures},#{priceDiscount},#{interfaceCode},#{dataResource}
+        )
+    </insert>
+
+    <insert id="insertSupplierInfo" parameterType="com.mk.business.projpectresponse.model.BidSupplierInfo">
+        insert into t_a_bidsupplierinfo
+        (Bid_SupplierInfo_Guid, Response_Guid, Supplier_Guid, Supplier_CertCode, Supplier_Name,
+        Location_Guid, Supplier_Size, Supplier_Features, Legend_Name, Cell_Number)
+        values
+        (
+        #{bidSupplierInfoGuid},#{responseGuid},#{supplierGuid},#{supplierCertCode},#{supplierName},
+        #{locationGuid},#{supplierSize},#{supplierFeatures},#{legendName},#{cellNumber}
+        )
+    </insert>
+
+
+</mapper>

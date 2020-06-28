@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.year.dao.YearDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.year.model.Year">
+    <!--@mbg.generated generated on Wed Apr 08 15:07:50 CST 2020.-->
+    <id column="Year" jdbcType="DECIMAL" property="year" />
+    <result column="Year_Name" jdbcType="VARCHAR" property="yearName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 08 15:07:50 CST 2020.-->
+    `Year`, Year_Name
+  </sql>
+</mapper>

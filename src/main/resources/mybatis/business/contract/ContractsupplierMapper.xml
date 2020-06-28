@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.contract.dao.ContractsupplierDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.contract.model.Contractsupplier">
+    <!--@mbg.generated generated on Wed Apr 15 09:34:57 CST 2020.-->
+    <!--@Table t_a_contractsupplier-->
+    <id column="Contract_Supplier_Guid" jdbcType="VARCHAR" property="contractSupplierGuid" />
+    <result column="Contract_Guid" jdbcType="VARCHAR" property="contractGuid" />
+    <result column="Supplier_Guid" jdbcType="VARCHAR" property="supplierGuid" />
+    <result column="Supplier_CertCode" jdbcType="VARCHAR" property="supplierCertcode" />
+    <result column="Supplier_Name" jdbcType="VARCHAR" property="supplierName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 15 09:34:57 CST 2020.-->
+    Contract_Supplier_Guid, Contract_Guid, Supplier_Guid, Supplier_CertCode, Supplier_Name
+  </sql>
+  <delete id="deleteByContractGuid" parameterType="string">
+    delete from t_a_contractsupplier
+    where Contract_Guid = #{contractGuid}
+  </delete>
+
+</mapper>

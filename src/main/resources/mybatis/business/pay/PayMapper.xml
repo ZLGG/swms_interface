@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.pay.dao.PayDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.pay.model.Pay">
+    <!--@mbg.generated generated on Wed Apr 15 16:54:17 CST 2020.-->
+    <!--@Table t_a_pay-->
+    <id column="Pay_Guid" jdbcType="VARCHAR" property="payGuid" />
+    <result column="Contract_Guid" jdbcType="VARCHAR" property="contractGuid" />
+    <result column="Pay_Code" jdbcType="VARCHAR" property="payCode" />
+    <result column="Region_Guid" jdbcType="VARCHAR" property="regionGuid" />
+    <result column="Year" jdbcType="DECIMAL" property="year" />
+    <result column="Org_Guid" jdbcType="VARCHAR" property="orgGuid" />
+    <result column="Finance_Dept_Guid" jdbcType="VARCHAR" property="financeDeptGuid" />
+    <result column="Pay_Date" jdbcType="TIMESTAMP" property="payDate" />
+    <result column="Pay_Type" jdbcType="INTEGER" property="payType" />
+    <result column="Money" jdbcType="DECIMAL" property="money" />
+    <result column="Supplier_Guid" jdbcType="VARCHAR" property="supplierGuid" />
+    <result column="Supplier_CertCode" jdbcType="VARCHAR" property="supplierCertcode" />
+    <result column="Supplier_Name" jdbcType="VARCHAR" property="supplierName" />
+    <result column="Account_Name" jdbcType="VARCHAR" property="accountName" />
+    <result column="Bank_Name" jdbcType="VARCHAR" property="bankName" />
+    <result column="Bank_Account" jdbcType="VARCHAR" property="bankAccount" />
+    <result column="Biz_Valid" jdbcType="INTEGER" property="bizValid" />
+    <result column="Biz_Time_Stamp" jdbcType="TIMESTAMP" property="bizTimeStamp" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+    <result column="Biz_Date" jdbcType="DATE" property="bizDate"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 15 16:54:17 CST 2020.-->
+    Pay_Guid, Contract_Guid, Pay_Code, Region_Guid, `Year`, Org_Guid, Finance_Dept_Guid,
+    Pay_Date, Pay_Type, Money, Supplier_Guid, Supplier_CertCode, Supplier_Name, Account_Name,
+    Bank_Name, Bank_Account, Biz_Valid, Biz_Time_Stamp, Interface_Code, Data_Resource, bizDate
+  </sql>
+
+  <select id="getPay" parameterType="map" resultType="int">
+        SELECT
+          count(1)
+      FROM
+          t_a_pay
+      WHERE
+          Interface_Code = #{interfacecode} and Data_Resource =#{datasource}
+  </select>
+</mapper>

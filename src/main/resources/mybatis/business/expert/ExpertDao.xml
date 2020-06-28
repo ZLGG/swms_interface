@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.expert.dao.ExpertDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.expert.model.Expert">
+    <id column="Expert_Guid" jdbcType="VARCHAR" property="expertGuid" />
+    <result column="Cert_Code" jdbcType="VARCHAR" property="certCode" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Unit_Name" jdbcType="VARCHAR" property="unitName" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+    <result column="Sex" jdbcType="DECIMAL" property="sex" />
+    <result column="Birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="Politics" jdbcType="DECIMAL" property="politics" />
+    <result column="Culture" jdbcType="DECIMAL" property="culture" />
+    <result column="Title_Date" jdbcType="TIMESTAMP" property="titleDate" />
+    <result column="Title" jdbcType="DECIMAL" property="title" />
+    <result column="Work_Date" jdbcType="TIMESTAMP" property="workDate" />
+    <result column="Expert_Channel" jdbcType="DECIMAL" property="expertChannel" />
+    <result column="Unit_Type" jdbcType="DECIMAL" property="unitType" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="Post_Code" jdbcType="VARCHAR" property="postCode" />
+    <result column="Regist_Time" jdbcType="TIMESTAMP" property="registTime" />
+    <result column="Check_Pass_Date" jdbcType="TIMESTAMP" property="checkPassDate" />
+    <result column="Notice_Date" jdbcType="TIMESTAMP" property="noticeDate" />
+    <result column="Approved_Date" jdbcType="TIMESTAMP" property="approvedDate" />
+    <result column="Exam_Pass_Date" jdbcType="TIMESTAMP" property="examPassDate" />
+    <result column="Inspection_Date" jdbcType="TIMESTAMP" property="inspectionDate" />
+    <result column="Pause_Date" jdbcType="TIMESTAMP" property="pauseDate" />
+    <result column="Recover_Date" jdbcType="TIMESTAMP" property="recoverDate" />
+    <result column="Pause_Reason" jdbcType="VARCHAR" property="pauseReason" />
+    <result column="Quit_Date" jdbcType="TIMESTAMP" property="quitDate" />
+    <result column="Quit_Reason" jdbcType="VARCHAR" property="quitReason" />
+    <result column="Biz_Valid" jdbcType="INTEGER" property="bizValid" />
+    <result column="Biz_Date" jdbcType="TIMESTAMP" property="bizDate" />
+    <result column="Biz_Time_Stamp" jdbcType="TIMESTAMP" property="bizTimeStamp" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+    <result column="Pur_Activity" jdbcType="INTEGER" property="purActivity" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Expert_Guid, Cert_Code, `Name`, Unit_Name, Phone, Sex, Birthday, Politics, Culture, 
+    Title_Date, Title, Work_Date, Expert_Channel, Unit_Type, Address, Post_Code, Regist_Time, 
+    Check_Pass_Date, Notice_Date, Approved_Date, Exam_Pass_Date, Inspection_Date, Pause_Date, 
+    Recover_Date, Pause_Reason, Quit_Date, Quit_Reason, Biz_Valid, Biz_Date, Biz_Time_Stamp, 
+    Interface_Code, Data_Resource,Pur_Activity
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_d_expert
+    where Expert_Guid = #{expertGuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_d_expert
+    where Expert_Guid = #{expertGuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="Expert_Guid" keyProperty="expertGuid" parameterType="com.mk.business.expert.model.Expert" useGeneratedKeys="true">
+    insert into t_d_expert (Expert_Guid, Cert_Code, `Name`, Unit_Name,
+      Phone, Sex, Birthday, 
+      Politics, Culture, Title_Date, 
+      Title, Work_Date, Expert_Channel, 
+      Unit_Type, Address, Post_Code, 
+      Regist_Time, Check_Pass_Date, Notice_Date, 
+      Approved_Date, Exam_Pass_Date, Inspection_Date, 
+      Pause_Date, Recover_Date, Pause_Reason, 
+      Quit_Date, Quit_Reason, Biz_Valid, 
+      Biz_Date, Biz_Time_Stamp, Interface_Code, 
+      Data_Resource,Pur_Activity)
+    values (#{expertGuid,jdbcType=VARCHAR}, #{certCode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{unitName,jdbcType=VARCHAR},
+      #{phone,jdbcType=VARCHAR}, #{sex,jdbcType=DECIMAL}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{politics,jdbcType=DECIMAL}, #{culture,jdbcType=DECIMAL}, #{titleDate,jdbcType=TIMESTAMP}, 
+      #{title,jdbcType=DECIMAL}, #{workDate,jdbcType=TIMESTAMP}, #{expertChannel,jdbcType=DECIMAL}, 
+      #{unitType,jdbcType=DECIMAL}, #{address,jdbcType=VARCHAR}, #{postCode,jdbcType=VARCHAR}, 
+      #{registTime,jdbcType=TIMESTAMP}, #{checkPassDate,jdbcType=TIMESTAMP}, #{noticeDate,jdbcType=TIMESTAMP}, 
+      #{approvedDate,jdbcType=TIMESTAMP}, #{examPassDate,jdbcType=TIMESTAMP}, #{inspectionDate,jdbcType=TIMESTAMP}, 
+      #{pauseDate,jdbcType=TIMESTAMP}, #{recoverDate,jdbcType=TIMESTAMP}, #{pauseReason,jdbcType=VARCHAR}, 
+      #{quitDate,jdbcType=TIMESTAMP}, #{quitReason,jdbcType=VARCHAR}, #{bizValid,jdbcType=INTEGER}, 
+      #{bizDate,jdbcType=TIMESTAMP}, #{bizTimeStamp,jdbcType=TIMESTAMP}, #{interfaceCode,jdbcType=VARCHAR}, 
+      #{dataResource,jdbcType=VARCHAR},#{purActivity,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="Expert_Guid" keyProperty="expertGuid" parameterType="com.mk.business.expert.model.Expert" useGeneratedKeys="true">
+    insert into t_d_expert
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="certCode != null">
+        Cert_Code,
+      </if>
+      <if test="name != null">
+        `Name`,
+      </if>
+      <if test="unitName != null">
+        Unit_Name,
+      </if>
+      <if test="phone != null">
+        Phone,
+      </if>
+      <if test="sex != null">
+        Sex,
+      </if>
+      <if test="birthday != null">
+        Birthday,
+      </if>
+      <if test="politics != null">
+        Politics,
+      </if>
+      <if test="culture != null">
+        Culture,
+      </if>
+      <if test="titleDate != null">
+        Title_Date,
+      </if>
+      <if test="title != null">
+        Title,
+      </if>
+      <if test="workDate != null">
+        Work_Date,
+      </if>
+      <if test="expertChannel != null">
+        Expert_Channel,
+      </if>
+      <if test="unitType != null">
+        Unit_Type,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="postCode != null">
+        Post_Code,
+      </if>
+      <if test="registTime != null">
+        Regist_Time,
+      </if>
+      <if test="checkPassDate != null">
+        Check_Pass_Date,
+      </if>
+      <if test="noticeDate != null">
+        Notice_Date,
+      </if>
+      <if test="approvedDate != null">
+        Approved_Date,
+      </if>
+      <if test="examPassDate != null">
+        Exam_Pass_Date,
+      </if>
+      <if test="inspectionDate != null">
+        Inspection_Date,
+      </if>
+      <if test="pauseDate != null">
+        Pause_Date,
+      </if>
+      <if test="recoverDate != null">
+        Recover_Date,
+      </if>
+      <if test="pauseReason != null">
+        Pause_Reason,
+      </if>
+      <if test="quitDate != null">
+        Quit_Date,
+      </if>
+      <if test="quitReason != null">
+        Quit_Reason,
+      </if>
+      <if test="bizValid != null">
+        Biz_Valid,
+      </if>
+      <if test="bizDate != null">
+        Biz_Date,
+      </if>
+      <if test="bizTimeStamp != null">
+        Biz_Time_Stamp,
+      </if>
+      <if test="interfaceCode != null">
+        Interface_Code,
+      </if>
+      <if test="dataResource != null">
+        Data_Resource,
+      </if>
+      <if test="purActivity != null">
+        Pur_Activity,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="certCode != null">
+        #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="unitName != null">
+        #{unitName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=DECIMAL},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="politics != null">
+        #{politics,jdbcType=DECIMAL},
+      </if>
+      <if test="culture != null">
+        #{culture,jdbcType=DECIMAL},
+      </if>
+      <if test="titleDate != null">
+        #{titleDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=DECIMAL},
+      </if>
+      <if test="workDate != null">
+        #{workDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expertChannel != null">
+        #{expertChannel,jdbcType=DECIMAL},
+      </if>
+      <if test="unitType != null">
+        #{unitType,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null">
+        #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registTime != null">
+        #{registTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkPassDate != null">
+        #{checkPassDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noticeDate != null">
+        #{noticeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approvedDate != null">
+        #{approvedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examPassDate != null">
+        #{examPassDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inspectionDate != null">
+        #{inspectionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pauseDate != null">
+        #{pauseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recoverDate != null">
+        #{recoverDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pauseReason != null">
+        #{pauseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="quitDate != null">
+        #{quitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quitReason != null">
+        #{quitReason,jdbcType=VARCHAR},
+      </if>
+      <if test="bizValid != null">
+        #{bizValid,jdbcType=INTEGER},
+      </if>
+      <if test="bizDate != null">
+        #{bizDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bizTimeStamp != null">
+        #{bizTimeStamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interfaceCode != null">
+        #{interfaceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataResource != null">
+        #{dataResource,jdbcType=VARCHAR},
+      </if>
+      <if test="purActivity != null">
+        #{purActivity,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mk.business.expert.model.Expert">
+    update t_d_expert
+    <set>
+      <if test="purActivity != null">
+        Pur_Activity = #{purActivity,jdbcType=INTEGER},
+      </if>
+      <if test="certCode != null">
+        Cert_Code = #{certCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `Name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="unitName != null">
+        Unit_Name = #{unitName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        Sex = #{sex,jdbcType=DECIMAL},
+      </if>
+      <if test="birthday != null">
+        Birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="politics != null">
+        Politics = #{politics,jdbcType=DECIMAL},
+      </if>
+      <if test="culture != null">
+        Culture = #{culture,jdbcType=DECIMAL},
+      </if>
+      <if test="titleDate != null">
+        Title_Date = #{titleDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="title != null">
+        Title = #{title,jdbcType=DECIMAL},
+      </if>
+      <if test="workDate != null">
+        Work_Date = #{workDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expertChannel != null">
+        Expert_Channel = #{expertChannel,jdbcType=DECIMAL},
+      </if>
+      <if test="unitType != null">
+        Unit_Type = #{unitType,jdbcType=DECIMAL},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null">
+        Post_Code = #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registTime != null">
+        Regist_Time = #{registTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkPassDate != null">
+        Check_Pass_Date = #{checkPassDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noticeDate != null">
+        Notice_Date = #{noticeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approvedDate != null">
+        Approved_Date = #{approvedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examPassDate != null">
+        Exam_Pass_Date = #{examPassDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inspectionDate != null">
+        Inspection_Date = #{inspectionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pauseDate != null">
+        Pause_Date = #{pauseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recoverDate != null">
+        Recover_Date = #{recoverDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pauseReason != null">
+        Pause_Reason = #{pauseReason,jdbcType=VARCHAR},
+      </if>
+      <if test="quitDate != null">
+        Quit_Date = #{quitDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quitReason != null">
+        Quit_Reason = #{quitReason,jdbcType=VARCHAR},
+      </if>
+      <if test="bizValid != null">
+        Biz_Valid = #{bizValid,jdbcType=INTEGER},
+      </if>
+      <if test="bizDate != null">
+        Biz_Date = #{bizDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bizTimeStamp != null">
+        Biz_Time_Stamp = #{bizTimeStamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interfaceCode != null">
+        Interface_Code = #{interfaceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataResource != null">
+        Data_Resource = #{dataResource,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Expert_Guid = #{expertGuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mk.business.expert.model.Expert">
+    update t_d_expert
+    set Pur_Activity = #{purActivity,jdbcType=INTEGER},
+       Cert_Code = #{certCode,jdbcType=VARCHAR},
+      `Name` = #{name,jdbcType=VARCHAR},
+      Unit_Name = #{unitName,jdbcType=VARCHAR},
+      Phone = #{phone,jdbcType=VARCHAR},
+      Sex = #{sex,jdbcType=DECIMAL},
+      Birthday = #{birthday,jdbcType=TIMESTAMP},
+      Politics = #{politics,jdbcType=DECIMAL},
+      Culture = #{culture,jdbcType=DECIMAL},
+      Title_Date = #{titleDate,jdbcType=TIMESTAMP},
+      Title = #{title,jdbcType=DECIMAL},
+      Work_Date = #{workDate,jdbcType=TIMESTAMP},
+      Expert_Channel = #{expertChannel,jdbcType=DECIMAL},
+      Unit_Type = #{unitType,jdbcType=DECIMAL},
+      Address = #{address,jdbcType=VARCHAR},
+      Post_Code = #{postCode,jdbcType=VARCHAR},
+      Regist_Time = #{registTime,jdbcType=TIMESTAMP},
+      Check_Pass_Date = #{checkPassDate,jdbcType=TIMESTAMP},
+      Notice_Date = #{noticeDate,jdbcType=TIMESTAMP},
+      Approved_Date = #{approvedDate,jdbcType=TIMESTAMP},
+      Exam_Pass_Date = #{examPassDate,jdbcType=TIMESTAMP},
+      Inspection_Date = #{inspectionDate,jdbcType=TIMESTAMP},
+      Pause_Date = #{pauseDate,jdbcType=TIMESTAMP},
+      Recover_Date = #{recoverDate,jdbcType=TIMESTAMP},
+      Pause_Reason = #{pauseReason,jdbcType=VARCHAR},
+      Quit_Date = #{quitDate,jdbcType=TIMESTAMP},
+      Quit_Reason = #{quitReason,jdbcType=VARCHAR},
+      Biz_Valid = #{bizValid,jdbcType=INTEGER},
+      Biz_Date = #{bizDate,jdbcType=TIMESTAMP},
+      Biz_Time_Stamp = #{bizTimeStamp,jdbcType=TIMESTAMP},
+      Interface_Code = #{interfaceCode,jdbcType=VARCHAR},
+      Data_Resource = #{dataResource,jdbcType=VARCHAR}
+    where Expert_Guid = #{expertGuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

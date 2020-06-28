@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.commentindex.dao.CommentIndexDao">
+
+
+    <insert id="insertCommentIndexPoint" parameterType="com.mk.business.commentindex.model.CommentIndexPoint">
+        insert into t_a_commentindexpoint
+        (CommentIndex_Point_Guid, Response_Guid, Comment_Index_Guid, Bid_Expert_Guid, Point, Review_Result)
+        values (
+         #{commentIndexPointGuid}, #{responseGuid}, #{commentIndexGuid}, #{bidExpertGuid}, #{point}, #{reviewResult}
+        )
+    </insert>
+
+    <insert id="insertCommentResultPrice" parameterType="com.mk.business.commentindex.model.CommentResultPrice">
+        insert into t_a_commentresultprice
+        (Comment_ResultPrice_Guid, Comment_ResultDetail_Guid, Comment_Index_Guid,
+        Comment_Index_Name, Price_Type, Includ, Last_Price, Price_Value)
+         values (
+         #{commentResultPriceGuid},#{commentResultDetailGuid},#{commentIndexGuid},#{commentIndexName},
+         #{priceType},#{includ},#{lastPrice},#{priceValue}
+         )
+    </insert>
+
+    <insert id="insertCommentIndex" parameterType="com.mk.business.commentindex.model.CommentIndex">
+        insert into t_a_commentindex
+        (CommentIndex_Guid, CommentIndex_P_Guid, Project_Guid, Bid_Guid, CommentIndex_Name, DOrder, Price_Type,
+         Includ, CommentIndex_Type, Point, Conform_Type, Interface_Code, Data_Resource)
+        values
+        (
+        #{commentIndexGuid},#{commentIndexPGuid},#{projectGuid},#{bidGuid},#{commentIndexName},#{dOrder},
+        #{priceType},#{includ},#{commentIndexType},#{point},#{conformType},#{interfaceCode},#{dataResource}
+        )
+    </insert>
+
+    <update id="updateCommentIndex" parameterType="com.mk.business.commentindex.model.CommentIndex">
+        update t_a_commentindex set
+        CommentIndex_P_Guid = #{commentIndexPGuid},Project_Guid = #{projectGuid},
+        Bid_Guid = #{bidGuid},CommentIndex_Name = #{commentIndexName},DOrder = #{dOrder},
+        Price_Type = #{priceType},Includ = #{includ},CommentIndex_Type = #{commentIndexType},Point = #{point},Conform_Type = #{conformType}
+         where CommentIndex_Guid = #{commentIndexGuid}
+    </update>
+
+    <delete id="delCommentIndexPoint" parameterType="string">
+        delete from t_a_commentindexpoint
+        where Comment_Index_Guid = #{commentIndexGuid}
+    </delete>
+    <delete id="delCommentResultPrice" parameterType="string">
+        delete from t_a_commentresultprice
+        where Comment_ResultDetail_Guid = #{commentResultDetailGuid}
+    </delete>
+
+    <delete id="delCommentIndexByProject" parameterType="string">
+        delete from t_a_commentindex where Project_Guid = #{projectGuid}
+    </delete>
+
+    <select id="getCommentIndex" resultType="integer" parameterType="string">
+        select count(1) from t_a_commentindex where CommentIndex_Guid = #{commentIndexGuid};
+    </select>
+
+    <select id="getCommentIndexGuids" resultType="string" parameterType="string">
+        select CommentIndex_Guid from t_a_commentindex where Project_Guid = #{projectGuid} and CommentIndex_P_Guid is null
+    </select>
+
+    <select id="getBidExpertGuid" resultType="java.lang.String" parameterType="map">
+        select Bid_Expert_Guid from t_a_bidexpert where project_Guid = #{projectGuid} and bidItem_Guid = #{bidItemGuid}
+    </select>
+
+    <delete id="delCommentIndexPointByBidExpertGuid" parameterType="string">
+        delete from t_a_commentindexpoint where Bid_Expert_Guid = #{bidExpertGuid}
+    </delete>
+
+    <select id="getCommentIndexPGuid" parameterType="map" resultType="string">
+        select CommentIndex_Guid from t_a_commentindex where Interface_Code = #{commentIndexPGuid} and Data_Resource = #{dataResource}
+    </select>
+
+    <delete id="delCommentIndexByCommentIndexGuid" parameterType="string">
+        delete from t_a_commentindex where CommentIndex_Guid = #{commentIndexGuid}
+    </delete>
+
+    <select id="getCommentIndexByPGuid" parameterType="string" resultType="string">
+        select CommentIndex_Guid from t_a_commentindex where CommentIndex_P_Guid = #{commentIndexGuid}
+    </select>
+</mapper>

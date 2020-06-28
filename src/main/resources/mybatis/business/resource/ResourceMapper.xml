@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.resource.dao.ResourceDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.resource.model.Resource">
+    <!--@mbg.generated generated on Wed Apr 08 16:30:05 CST 2020.-->
+    <id column="Resource_Guid" jdbcType="VARCHAR" property="resourceGuid" />
+    <result column="Region_Guid" jdbcType="VARCHAR" property="regionGuid" />
+    <result column="Year" jdbcType="DECIMAL" property="year" />
+    <result column="Resource_Name" jdbcType="VARCHAR" property="resourceName" />
+    <result column="Dorder" jdbcType="DECIMAL" property="dorder" />
+    <result column="Valid" jdbcType="DECIMAL" property="valid" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 08 16:30:05 CST 2020.-->
+    Resource_Guid, Region_Guid, `Year`, Resource_Name, Dorder, `Valid`, Interface_Code
+  </sql>
+
+  <select id="getResource" parameterType="int" resultType="int">
+       select  count(1) from  t_d_resource where Resource_Guid = #{resourceGuid}
+  </select>
+</mapper>

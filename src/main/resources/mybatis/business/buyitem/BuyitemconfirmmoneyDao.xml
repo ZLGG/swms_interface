@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.buyitem.dao.BuyitemconfirmmoneyDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.buyitem.model.Buyitemconfirmmoney">
+    <!--@mbg.generated generated on Sun Apr 26 15:44:48 CST 2020.-->
+    <!--@Table t_a_buyitemconfirmmoney-->
+    <id column="BuyitemConfirmMoneyGuid" jdbcType="VARCHAR" property="buyitemconfirmmoneyguid" />
+    <result column="Buyitem_Confirm_Guid" jdbcType="VARCHAR" property="buyitemConfirmGuid" />
+    <result column="Resource_Guid" jdbcType="VARCHAR" property="resourceGuid" />
+    <result column="Money" jdbcType="DECIMAL" property="money" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Sun Apr 26 15:44:48 CST 2020.-->
+    BuyitemConfirmMoneyGuid, Buyitem_Confirm_Guid, Resource_Guid, Money
+  </sql>
+</mapper>

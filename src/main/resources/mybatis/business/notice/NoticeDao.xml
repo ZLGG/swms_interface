@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.notice.dao.NoticeDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.notice.model.Notice">
+    <!--@mbg.generated generated on Fri May 15 11:46:25 CST 2020.-->
+    <!--@Table t_a_notice-->
+    <id column="Notice_Guid" jdbcType="VARCHAR" property="noticeGuid" />
+    <result column="Biz_Guid" jdbcType="VARCHAR" property="bizGuid" />
+    <result column="Biz_Type" jdbcType="VARCHAR" property="bizType" />
+    <result column="Notice_Type" jdbcType="VARCHAR" property="noticeType" />
+    <result column="Publish_State" jdbcType="VARCHAR" property="publishState" />
+    <result column="Publish_Date" jdbcType="TIMESTAMP" property="publishDate" />
+    <result column="Validity_Date" jdbcType="TIMESTAMP" property="validityDate" />
+    <result column="Notice_Code" jdbcType="VARCHAR" property="noticeCode" />
+    <result column="Notice_Title" jdbcType="VARCHAR" property="noticeTitle" />
+    <result column="Suggestion" jdbcType="VARCHAR" property="suggestion" />
+    <result column="Org_Guid" jdbcType="VARCHAR" property="orgGuid" />
+    <result column="Region_Guid" jdbcType="VARCHAR" property="regionGuid" />
+    <result column="Notice_Content" jdbcType="LONGVARCHAR" property="noticeContent" />
+    <result column="Biz_Interface_Code" jdbcType="VARCHAR" property="bizInterfaceCode" />
+    <result column="Biz_Valid" jdbcType="DECIMAL" property="bizValid" />
+    <result column="Biz_Time_Stamp" jdbcType="TIMESTAMP" property="bizTimeStamp" />
+    <result column="Biz_Date" jdbcType="DATE" property="bizDate" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Fri May 15 11:46:25 CST 2020.-->
+    Notice_Guid, Biz_Guid, Biz_Type, Notice_Type, Publish_State, Publish_Date, Validity_Date,
+    Notice_Code, Notice_Title, Suggestion, Org_Guid, Region_Guid, Notice_Content, Biz_Interface_Code,
+    Biz_Valid, Biz_Time_Stamp, Biz_Date, Interface_Code, Data_Resource
+  </sql>
+</mapper>

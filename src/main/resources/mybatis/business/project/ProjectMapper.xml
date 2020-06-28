@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.project.dao.ProjectDao">
+
+    <delete id="delProjectToBuyPlan" parameterType="string">
+        delete from t_a_projecttobuyplan
+        where project_Guid = #{projectGuid}
+    </delete>
+
+    <delete id="delBidItem" parameterType="string">
+        delete from t_a_biditem
+        where project_Guid = #{projectGuid}
+    </delete>
+    <delete id="delNonexistentBidItem">
+        delete from t_a_biditem where Data_Resource = #{dataResource} and project_Guid = #{projectGuid}
+        and Interface_Code not in
+        <foreach collection="bidItemGuids" index="index" open="(" close=")" separator="," item="bidItemGuid">
+            #{bidItemGuid}
+        </foreach>
+    </delete>
+    <delete id="delAllBidItemByProject">
+        delete from t_a_biditem where project_Guid = #{projectGuid} and Data_Resource #{dataResource}
+    </delete>
+    <select id="getProject" resultType="com.mk.business.project.model.Project" parameterType="map">
+        select * from t_a_project where Interface_Code = #{interfaceCode} and Data_Resource = #{dataResource}
+    </select>
+    <select id="getBidItemByGuid" resultType="com.mk.business.project.model.BidItem" parameterType="map">
+        select * from t_a_biditem where Interface_Code = #{interfaceCode} and Data_Resource = #{dataResource}
+    </select>
+    <select id="getBuyPlanDetail" parameterType="string" resultType="string">
+        select BuyPlan_Detail_Guid from t_a_buyplandetail where BuyPlan_Detail_Guid = #{buyPlanDetailGuid}
+    </select>
+
+    <select id="getRegion" resultType="java.lang.String" parameterType="string">
+        select Region_Guid from t_d_region where Region_Guid = #{regionGuid}
+    </select>
+    <select id="getOrg" resultType="java.lang.String" parameterType="string">
+        select Org_Guid from t_d_organization where Org_Guid = #{orgGuid}
+    </select>
+    <select id="getProjectByGuid" parameterType="string" resultType="com.mk.business.project.model.Project">
+        select * from t_a_project where Project_Guid = #{projectGuid}
+    </select>
+    <select id="getBidItemById" resultType="com.mk.business.project.model.BidItem" parameterType="string">
+        select * from t_a_biditem where BidItem_Guid = #{bidItemGuid}
+    </select>
+
+    <update id="updateProject" parameterType="com.mk.business.project.model.Project">
+        update t_a_project
+        set
+        Region_Guid = #{regionGuid},Platform_Type_Guid = #{platformTypeGuid},Platform_Guid = #{platformGuid},
+        project_No = #{projectNo},project_Name = #{projectName},project_Money = #{projectMoney},
+        Is_Deposit = #{isDeposit},Deposit_Rcv_Account_Name = #{depositRcvAccountName},Deposit_Rcv_Account = #{depositRcvAccount},
+        Deposit_Rcv_Time = #{depositRcvTime},Deposit_Money = #{depositMoney},Requirement = #{requirement},
+        Is_Accept_Union = #{isAcceptUnion},Is_Price_Discount = #{isPriceDiscount},
+        Product_Info_URL = #{productInfoUrl},Project_State = #{projectState},PurMethod = #{purMethod},Agent_Guid = #{agentGuid},
+        Agent_Code = #{agentCode},Agent_Name = #{agentName},Agent_Type = #{agentType},Response_Start_Time = #{responseStartTime},
+        Response_End_Time = #{responseEndTime},Procurement_Published = #{procurementPublished},
+        Procurement_Publish_Time = #{procurementPublishTime},
+        Procurement_URL = #{procurementUrl},Correction_Published = #{correctionPublished},Correction_PublishTime = #{correctionPublishTime},
+        Correction_URL = #{correctionUrl},Result_Published = #{resultPublished},
+        result_Publish_Time = #{resultPublishTime},Result_URL = #{resultUrl},Biz_valid = #{bizValid},Biz_Date = #{bizDate},Biz_Time_Stamp = #{bizTimeStamp},
+        Interface_Code = #{interfaceCode},Data_Resource = #{dataResource}
+        where project_Guid = #{projectGuid}
+    </update>
+
+
+    <insert id="insertProject" parameterType="com.mk.business.project.model.Project">
+        insert into t_a_project
+        (Project_Guid, Region_Guid, Platform_Type_Guid, Platform_Guid, Project_No, Project_Name, Project_Money,
+        Is_Deposit, Deposit_Rcv_Account_Name, Deposit_Rcv_Account, Deposit_Rcv_Time, Deposit_Money, Requirement,
+         Is_Accept_Union, Is_Price_Discount,  Product_Info_URL, Project_State, PurMethod, Agent_Guid,
+         Agent_Code, Agent_Name, Agent_Type, Response_Start_Time, Response_End_Time, Procurement_Published,
+         Procurement_Publish_Time, Procurement_URL, Correction_Published, Correction_PublishTime, Correction_URL,
+          Result_Published, Result_Publish_Time, Result_URL, Biz_valid, Biz_Date, Biz_Time_Stamp, Interface_Code, Data_Resource)
+          values
+          (#{projectGuid},
+          #{regionGuid},
+          #{platformTypeGuid},
+          #{platformGuid},
+          #{projectNo},
+          #{projectName},
+          #{projectMoney},
+          #{isDeposit},
+          #{depositRcvAccountName},
+          #{depositRcvAccount},
+          #{depositRcvTime},
+          #{depositMoney},
+          #{requirement},
+          #{isAcceptUnion},
+          #{isPriceDiscount},
+          #{productInfoUrl},
+          #{projectState},
+          #{purMethod},
+          #{agentGuid},
+          #{agentCode},
+          #{agentName},
+          #{agentType},
+          #{responseStartTime},
+          #{responseEndTime},
+          #{procurementPublished},
+          #{procurementPublishTime},
+          #{procurementUrl},
+          #{correctionPublished},
+          #{correctionPublishTime},
+          #{correctionUrl},
+          #{resultPublished},
+          #{resultPublishTime},
+          #{resultUrl},
+          #{bizValid},
+          #{bizDate},
+          #{bizTimeStamp},
+          #{interfaceCode},
+          #{dataResource})
+    </insert>
+
+    <insert id="insertBidItem" parameterType="com.mk.business.project.model.BidItem">
+        insert into t_a_biditem
+        (BidItem_Guid, Project_Guid, Org_Guid, BidItem_NO, BidItem_Name, BidItem_Money,
+        Deposit_Money, Requirement, PurMethod, Interface_Code, Data_Resource,Price_Discount)
+         values
+         (#{bidItemGuid},#{projectGuid},#{orgGuid},#{bidItemNo},
+         #{bidItemName},#{bidItemMoney},#{depositMoney},#{requirement},
+         #{purMethod},#{interfaceCode},#{dataResource},
+          #{priceDiscount})
+    </insert>
+
+    <update id="updateBidItem" parameterType="com.mk.business.project.model.BidItem">
+        update t_a_biditem set
+        project_Guid = #{projectGuid},bidItem_NO = #{bidItemNo},Deposit_Money = #{depositMoney},
+         bidItem_Name = #{bidItemName},bidItem_Money = #{bidItemMoney},Requirement = #{requirement},
+         org_guid = #{orgGuid},PurMethod = #{purMethod},Interface_Code = #{interfaceCode},Data_Resource = #{dataResource},Price_Discount = #{priceDiscount}
+        where
+        bidItem_Guid = #{bidItemGuid};
+    </update>
+
+    <insert id="insertProjectToBuyPlan" parameterType="com.mk.business.project.model.ProjectToBuyPlan">
+        insert into t_a_projecttobuyplan
+        (Project_To_BuyPlan_Guid, project_Guid, bidItem_Guid, BuyPlan_Detail_Guid)
+        values
+        (#{projectToBuyPlanGuid},#{projectGuid},#{bidItemGuid},#{buyPlanDetailGuid})
+    </insert>
+
+</mapper>

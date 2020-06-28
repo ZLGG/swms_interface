@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.audithistory.dao.AudithistoryDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.audithistory.model.Audithistory">
+    <!--@mbg.generated generated on Mon Apr 27 15:27:17 CST 2020.-->
+    <!--@Table t_a_audithistory-->
+    <id column="AuditHistory_Guid" jdbcType="VARCHAR" property="audithistoryGuid" />
+    <result column="Biz_Guid" jdbcType="VARCHAR" property="bizGuid" />
+    <result column="Biz_Type" jdbcType="VARCHAR" property="bizType" />
+    <result column="Excute_Time" jdbcType="TIMESTAMP" property="excuteTime" />
+    <result column="Task_Name" jdbcType="VARCHAR" property="taskName" />
+    <result column="Excute_Org_Guid" jdbcType="VARCHAR" property="excuteOrgGuid" />
+    <result column="Excute_Org_Name" jdbcType="VARCHAR" property="excuteOrgName" />
+    <result column="Excute_Org_Type" jdbcType="DECIMAL" property="excuteOrgType" />
+    <result column="Post_Guid" jdbcType="VARCHAR" property="postGuid" />
+    <result column="Post_Name" jdbcType="VARCHAR" property="postName" />
+    <result column="Excute_User_Guid" jdbcType="VARCHAR" property="excuteUserGuid" />
+    <result column="Excute_User_Name" jdbcType="VARCHAR" property="excuteUserName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Mon Apr 27 15:27:17 CST 2020.-->
+    AuditHistory_Guid, Biz_Guid, Biz_Type, Excute_Time, Task_Name, Excute_Org_Guid, Excute_Org_Name,
+    Excute_Org_Type, Post_Guid, Post_Name, Excute_User_Guid, Excute_User_Name
+  </sql>
+</mapper>

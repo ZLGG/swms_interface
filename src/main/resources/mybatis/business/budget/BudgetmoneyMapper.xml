@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.budget.dao.BudgetmoneyDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.budget.model.Budgetmoney">
+    <!--@mbg.generated generated on Wed Apr 15 16:50:22 CST 2020.-->
+    <!--@Table t_a_budgetmoney-->
+    <id column="Budget_Money_Guid" jdbcType="VARCHAR" property="budgetMoneyGuid" />
+    <result column="PurCatalog_Type" jdbcType="VARCHAR" property="purcatalogType" />
+    <result column="Resource_Guid" jdbcType="VARCHAR" property="resourceGuid" />
+    <result column="Budget_Guid" jdbcType="VARCHAR" property="budgetGuid" />
+    <result column="Money" jdbcType="DECIMAL" property="money" />
+    <result column="Is_Buyitem" jdbcType="DECIMAL" property="isBuyitem" />
+    <result column="Buyitem_Money" jdbcType="DECIMAL" property="buyitemMoney" />
+    <result column="Kind" jdbcType="VARCHAR" property="kind" />
+    <result column="PurCatalog_Guid" jdbcType="VARCHAR" property="purcatalogGuid" />
+    <result column="Is_Directional" jdbcType="DECIMAL" property="isDirectional" />
+    <result column="Is_Poverty_Relief" jdbcType="DECIMAL" property="isPovertyRelief" />
+    <result column="Valid" jdbcType="DECIMAL" property="valid" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 15 16:50:22 CST 2020.-->
+    Budget_Money_Guid, PurCatalog_Type, Resource_Guid, Budget_Guid, Money, Is_Buyitem,
+    Buyitem_Money, Kind, PurCatalog_Guid, Is_Directional, Is_Poverty_Relief, `Valid`,
+    Interface_Code, Data_Resource
+  </sql>
+</mapper>

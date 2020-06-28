@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.fpsupplier.dao.FpSupplierDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.fpsupplier.model.FpSupplier">
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="Order_Id" jdbcType="VARCHAR" property="orderId" />
+    <result column="Supplier_Credit_Code" jdbcType="VARCHAR" property="supplierCreditCode" />
+    <result column="Supplier_Name" jdbcType="VARCHAR" property="supplierName" />
+    <result column="District_Code" jdbcType="VARCHAR" property="districtCode" />
+    <result column="Supplier_Scale" jdbcType="VARCHAR" property="supplierScale" />
+    <result column="Supplier_Characteristic" jdbcType="VARCHAR" property="supplierCharacteristic" />
+    <result column="Industry_Sort" jdbcType="VARCHAR" property="industrySort" />
+    <result column="Legal_Person" jdbcType="VARCHAR" property="legalPerson" />
+    <result column="Legal_Person_Phone" jdbcType="VARCHAR" property="legalPersonPhone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, Order_Id, Supplier_Credit_Code, Supplier_Name, District_Code, Supplier_Scale, 
+    Supplier_Characteristic, Industry_Sort, Legal_Person, Legal_Person_Phone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fp_supplier
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByOrderId" parameterType="string" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from t_fp_supplier
+    where Order_Id = #{orderId}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_fp_supplier
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="com.mk.business.fpsupplier.model.FpSupplier" useGeneratedKeys="true">
+    insert into t_fp_supplier (Id,Order_Id, Supplier_Credit_Code, Supplier_Name,
+      District_Code, Supplier_Scale, Supplier_Characteristic, 
+      Industry_Sort, Legal_Person, Legal_Person_Phone
+      )
+    values (#{id,jdbcType=VARCHAR},#{orderId,jdbcType=VARCHAR}, #{supplierCreditCode,jdbcType=VARCHAR}, #{supplierName,jdbcType=VARCHAR},
+      #{districtCode,jdbcType=VARCHAR}, #{supplierScale,jdbcType=VARCHAR}, #{supplierCharacteristic,jdbcType=VARCHAR}, 
+      #{industrySort,jdbcType=VARCHAR}, #{legalPerson,jdbcType=VARCHAR}, #{legalPersonPhone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.mk.business.fpsupplier.model.FpSupplier" useGeneratedKeys="true">
+    insert into t_fp_supplier
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        Order_Id,
+      </if>
+      <if test="supplierCreditCode != null">
+        Supplier_Credit_Code,
+      </if>
+      <if test="supplierName != null">
+        Supplier_Name,
+      </if>
+      <if test="districtCode != null">
+        District_Code,
+      </if>
+      <if test="supplierScale != null">
+        Supplier_Scale,
+      </if>
+      <if test="supplierCharacteristic != null">
+        Supplier_Characteristic,
+      </if>
+      <if test="industrySort != null">
+        Industry_Sort,
+      </if>
+      <if test="legalPerson != null">
+        Legal_Person,
+      </if>
+      <if test="legalPersonPhone != null">
+        Legal_Person_Phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCreditCode != null">
+        #{supplierCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierName != null">
+        #{supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null">
+        #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierScale != null">
+        #{supplierScale,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCharacteristic != null">
+        #{supplierCharacteristic,jdbcType=VARCHAR},
+      </if>
+      <if test="industrySort != null">
+        #{industrySort,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPersonPhone != null">
+        #{legalPersonPhone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mk.business.fpsupplier.model.FpSupplier">
+    update t_fp_supplier
+    <set>
+      <if test="orderId != null">
+        Order_Id = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCreditCode != null">
+        Supplier_Credit_Code = #{supplierCreditCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierName != null">
+        Supplier_Name = #{supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="districtCode != null">
+        District_Code = #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierScale != null">
+        Supplier_Scale = #{supplierScale,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierCharacteristic != null">
+        Supplier_Characteristic = #{supplierCharacteristic,jdbcType=VARCHAR},
+      </if>
+      <if test="industrySort != null">
+        Industry_Sort = #{industrySort,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null">
+        Legal_Person = #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPersonPhone != null">
+        Legal_Person_Phone = #{legalPersonPhone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mk.business.fpsupplier.model.FpSupplier">
+    update t_fp_supplier
+    set Order_Id = #{orderId,jdbcType=VARCHAR},
+      Supplier_Credit_Code = #{supplierCreditCode,jdbcType=VARCHAR},
+      Supplier_Name = #{supplierName,jdbcType=VARCHAR},
+      District_Code = #{districtCode,jdbcType=VARCHAR},
+      Supplier_Scale = #{supplierScale,jdbcType=VARCHAR},
+      Supplier_Characteristic = #{supplierCharacteristic,jdbcType=VARCHAR},
+      Industry_Sort = #{industrySort,jdbcType=VARCHAR},
+      Legal_Person = #{legalPerson,jdbcType=VARCHAR},
+      Legal_Person_Phone = #{legalPersonPhone,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

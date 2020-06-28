@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.Intention.dao.IntentionpublicDao">
+    <resultMap id="BaseResultMap" type="com.mk.business.Intention.model.Intentionpublic">
+        <id column="Id" jdbcType="VARCHAR" property="id"/>
+        <result column="Title" jdbcType="VARCHAR" property="title"/>
+        <result column="District" jdbcType="VARCHAR" property="district"/>
+        <result column="AnnouncementType" jdbcType="VARCHAR" property="announcementtype"/>
+        <result column="Status" jdbcType="INTEGER" property="status"/>
+        <result column="ProjectCode" jdbcType="VARCHAR" property="projectcode"/>
+        <result column="MetaData" jdbcType="VARCHAR" property="metadata"/>
+        <result column="ReleasedAt" jdbcType="TIMESTAMP" property="releasedat"/>
+        <result column="CreateOrgName" jdbcType="VARCHAR" property="createorgname"/>
+        <result column="OutUrl" jdbcType="VARCHAR" property="outurl"/>
+        <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    Id, Title, District, AnnouncementType, `Status`, ProjectCode, MetaData, ReleasedAt, 
+    CreateOrgName, OutUrl, Data_Resource
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_intentionpublic
+        where Id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_intentionpublic
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="com.mk.business.Intention.model.Intentionpublic"
+            useGeneratedKeys="true">
+    insert into t_intentionpublic (Id,Title, District, AnnouncementType,
+      `Status`, ProjectCode, MetaData, 
+      ReleasedAt, CreateOrgName, OutUrl, 
+      Data_Resource)
+    values (#{id,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, #{announcementtype,jdbcType=VARCHAR},
+      #{status,jdbcType=INTEGER}, #{projectcode,jdbcType=VARCHAR}, #{metadata,jdbcType=VARCHAR}, 
+      #{releasedat,jdbcType=TIMESTAMP}, #{createorgname,jdbcType=VARCHAR}, #{outurl,jdbcType=VARCHAR}, 
+      #{dataResource,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" keyColumn="Id" keyProperty="id"
+            parameterType="com.mk.business.Intention.model.Intentionpublic" useGeneratedKeys="true">
+        insert into t_intentionpublic
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null">
+                Title,
+            </if>
+            <if test="district != null">
+                District,
+            </if>
+            <if test="announcementtype != null">
+                AnnouncementType,
+            </if>
+            <if test="status != null">
+                `Status`,
+            </if>
+            <if test="projectcode != null">
+                ProjectCode,
+            </if>
+            <if test="metadata != null">
+                MetaData,
+            </if>
+            <if test="releasedat != null">
+                ReleasedAt,
+            </if>
+            <if test="createorgname != null">
+                CreateOrgName,
+            </if>
+            <if test="outurl != null">
+                OutUrl,
+            </if>
+            <if test="dataResource != null">
+                Data_Resource,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="district != null">
+                #{district,jdbcType=VARCHAR},
+            </if>
+            <if test="announcementtype != null">
+                #{announcementtype,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="projectcode != null">
+                #{projectcode,jdbcType=VARCHAR},
+            </if>
+            <if test="metadata != null">
+                #{metadata,jdbcType=VARCHAR},
+            </if>
+            <if test="releasedat != null">
+                #{releasedat,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createorgname != null">
+                #{createorgname,jdbcType=VARCHAR},
+            </if>
+            <if test="outurl != null">
+                #{outurl,jdbcType=VARCHAR},
+            </if>
+            <if test="dataResource != null">
+                #{dataResource,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.mk.business.Intention.model.Intentionpublic">
+        update t_intentionpublic
+        <set>
+            <if test="title != null">
+                Title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="district != null">
+                District = #{district,jdbcType=VARCHAR},
+            </if>
+            <if test="announcementtype != null">
+                AnnouncementType = #{announcementtype,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                `Status` = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="projectcode != null">
+                ProjectCode = #{projectcode,jdbcType=VARCHAR},
+            </if>
+            <if test="metadata != null">
+                MetaData = #{metadata,jdbcType=VARCHAR},
+            </if>
+            <if test="releasedat != null">
+                ReleasedAt = #{releasedat,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createorgname != null">
+                CreateOrgName = #{createorgname,jdbcType=VARCHAR},
+            </if>
+            <if test="outurl != null">
+                OutUrl = #{outurl,jdbcType=VARCHAR},
+            </if>
+            <if test="dataResource != null">
+                Data_Resource = #{dataResource,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where Id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.mk.business.Intention.model.Intentionpublic">
+    update t_intentionpublic
+    set Title = #{title,jdbcType=VARCHAR},
+      District = #{district,jdbcType=VARCHAR},
+      AnnouncementType = #{announcementtype,jdbcType=VARCHAR},
+      `Status` = #{status,jdbcType=INTEGER},
+      ProjectCode = #{projectcode,jdbcType=VARCHAR},
+      MetaData = #{metadata,jdbcType=VARCHAR},
+      ReleasedAt = #{releasedat,jdbcType=TIMESTAMP},
+      CreateOrgName = #{createorgname,jdbcType=VARCHAR},
+      OutUrl = #{outurl,jdbcType=VARCHAR},
+      Data_Resource = #{dataResource,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

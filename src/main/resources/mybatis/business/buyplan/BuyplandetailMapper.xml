@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.buyplan.dao.BuyplandetailDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.buyplan.model.Buyplandetail">
+    <!--@mbg.generated generated on Tue Apr 14 19:02:26 CST 2020.-->
+    <!--@Table t_a_buyplandetail-->
+    <id column="BuyPlan_Detail_Guid" jdbcType="VARCHAR" property="buyplanDetailGuid" />
+    <result column="BuyPlan_Guid" jdbcType="VARCHAR" property="buyplanGuid" />
+    <result column="Final_PurMethod" jdbcType="VARCHAR" property="finalPurmethod" />
+    <result column="PurCatalog_Type" jdbcType="VARCHAR" property="purcatalogType" />
+    <result column="PurCatalog_Guid" jdbcType="VARCHAR" property="purcatalogGuid" />
+    <result column="Platform_Type_Guid" jdbcType="VARCHAR" property="platformTypeGuid" />
+    <result column="Platform_Guid" jdbcType="VARCHAR" property="platformGuid" />
+    <result column="Archive_Date" jdbcType="TIMESTAMP" property="archiveDate" />
+    <result column="Agent_Type" jdbcType="VARCHAR" property="agentType" />
+    <result column="Agent_Guid" jdbcType="VARCHAR" property="agentGuid" />
+    <result column="Imports" jdbcType="DECIMAL" property="imports" />
+    <result column="Money" jdbcType="DECIMAL" property="money" />
+    <result column="Buy_Number" jdbcType="DECIMAL" property="buyNumber" />
+    <result column="Price" jdbcType="DECIMAL" property="price" />
+    <result column="Valid" jdbcType="DECIMAL" property="valid" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Tue Apr 14 19:02:26 CST 2020.-->
+    BuyPlan_Detail_Guid, BuyPlan_Guid, Final_PurMethod, PurCatalog_Type, PurCatalog_Guid,
+    Platform_Type_Guid, Platform_Guid, Archive_Date, Agent_Type, Agent_Guid, Imports,
+    Money, Buy_Number, Price, `Valid`, Interface_Code, Data_Resource
+  </sql>
+    <select id="selectBuyplandetailCount" resultType="int">
+      select count(BuyPlan_Detail_Guid)
+      from t_a_buyplandetail
+      where t_a_buyplandetail.Interface_Code = #{interfaceCode}
+      and t_a_buyplandetail.Data_Resource = #{dataResource}
+    </select>
+</mapper>

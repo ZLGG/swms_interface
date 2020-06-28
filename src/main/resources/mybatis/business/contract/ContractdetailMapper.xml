@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.contract.dao.ContractdetailDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.contract.model.Contractdetail">
+    <!--@mbg.generated generated on Wed Apr 15 09:34:35 CST 2020.-->
+    <!--@Table t_a_contractdetail-->
+    <id column="Contract_Detail_Guid" jdbcType="VARCHAR" property="contractDetailGuid" />
+    <result column="Contract_Guid" jdbcType="VARCHAR" property="contractGuid" />
+    <result column="BuyPlan_Detail_Guid" jdbcType="VARCHAR" property="buyplanDetailGuid" />
+    <result column="PurCatalog_Type" jdbcType="VARCHAR" property="purcatalogType" />
+    <result column="PurCatalog_Guid" jdbcType="VARCHAR" property="purcatalogGuid" />
+    <result column="Goods_Name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="Brand_name" jdbcType="VARCHAR" property="brandName" />
+    <result column="Unit_Name" jdbcType="VARCHAR" property="unitName" />
+    <result column="Plan_Purchase_Num" jdbcType="DECIMAL" property="planPurchaseNum" />
+    <result column="Plan_Price" jdbcType="DECIMAL" property="planPrice" />
+    <result column="Plan_Totle_Price" jdbcType="DECIMAL" property="planTotlePrice" />
+    <result column="Purchase_Num" jdbcType="DECIMAL" property="purchaseNum" />
+    <result column="Price" jdbcType="DECIMAL" property="price" />
+    <result column="Totle_Price" jdbcType="DECIMAL" property="totlePrice" />
+    <result column="Imports" jdbcType="DECIMAL" property="imports" />
+    <result column="Efficient" jdbcType="DECIMAL" property="efficient" />
+    <result column="Water_Saving" jdbcType="DECIMAL" property="waterSaving" />
+    <result column="Environment" jdbcType="DECIMAL" property="environment" />
+    <result column="Spec_Properties" jdbcType="VARCHAR" property="specProperties" />
+    <result column="Country_Code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="Product_Brand" jdbcType="VARCHAR" property="productBrand" />
+    <result column="Maker_Name" jdbcType="VARCHAR" property="makerName" />
+    <result column="Maker_Size" jdbcType="VARCHAR" property="makerSize" />
+    <result column="Maker_Origin_Type" jdbcType="VARCHAR" property="makerOriginType" />
+    <result column="Maker_Features" jdbcType="VARCHAR" property="makerFeatures" />
+    <result column="Purchase_Content" jdbcType="VARCHAR" property="purchaseContent" />
+    <result column="Plan_Money1" jdbcType="DECIMAL" property="planMoney1" />
+    <result column="Plan_Money2" jdbcType="DECIMAL" property="planMoney2" />
+    <result column="Plan_Money3" jdbcType="DECIMAL" property="planMoney3" />
+    <result column="Plan_Money4" jdbcType="DECIMAL" property="planMoney4" />
+    <result column="Contract_Money1" jdbcType="DECIMAL" property="contractMoney1" />
+    <result column="Contract_Money2" jdbcType="DECIMAL" property="contractMoney2" />
+    <result column="Contract_Money3" jdbcType="DECIMAL" property="contractMoney3" />
+    <result column="Contract_Money4" jdbcType="DECIMAL" property="contractMoney4" />
+    <result column="Goods_Model" jdbcType="VARCHAR" property="goodsModel" />
+    <result column="Porject_Type" jdbcType="VARCHAR" property="porjectType" />
+    <result column="Car_Type" jdbcType="VARCHAR" property="carType" />
+    <result column="Imported_Product_Code" jdbcType="VARCHAR" property="importedProductCode" />
+    <result column="Innovate_Type" jdbcType="VARCHAR" property="innovateType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 15 09:34:35 CST 2020.-->
+    Contract_Detail_Guid, Contract_Guid, BuyPlan_Detail_Guid, PurCatalog_Type, PurCatalog_Guid,
+    Goods_Name, Brand_name, Unit_Name, Plan_Purchase_Num, Plan_Price, Plan_Totle_Price,
+    Purchase_Num, Price, Totle_Price, Imports, Efficient, Water_Saving, Environment,
+    Spec_Properties, Country_Code, Product_Brand,  Maker_Name, Maker_Size, Maker_Origin_Type,
+    Maker_Features, Purchase_Content, Plan_Money1, Plan_Money2, Plan_Money3, Plan_Money4,
+    Contract_Money1, Contract_Money2, Contract_Money3, Contract_Money4, Goods_Model,
+    Porject_Type, Car_Type, Imported_Product_Code, Innovate_Type
+  </sql>
+  <delete id="deleteByContractGuid" parameterType="string">
+    delete from t_a_contractdetail
+    where Contract_Guid = #{contractGuid}
+  </delete>
+</mapper>

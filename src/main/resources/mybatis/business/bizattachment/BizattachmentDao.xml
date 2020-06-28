@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.bizattachment.dao.BizattachmentDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.bizattachment.model.Bizattachment">
+    <!--@mbg.generated generated on Thu May 07 11:25:09 CST 2020.-->
+    <!--@Table t_a_bizattachment-->
+    <id column="Attachment_Guid" jdbcType="VARCHAR" property="attachmentGuid" />
+    <result column="Biz_Guid" jdbcType="VARCHAR" property="bizGuid" />
+    <result column="Biz_Type" jdbcType="VARCHAR" property="bizType" />
+    <result column="Attachment_Type" jdbcType="VARCHAR" property="attachmentType" />
+    <result column="File_Name" jdbcType="VARCHAR" property="fileName" />
+    <result column="File_Path" jdbcType="VARCHAR" property="filePath" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu May 07 11:25:09 CST 2020.-->
+    Attachment_Guid, Biz_Guid, Biz_Type, Attachment_Type, File_Name, File_Path
+  </sql>
+</mapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.commentresult.dao.CommentResultDao">
+
+
+    <delete id="delCommentResultDetail" parameterType="string">
+        delete from t_a_commentresultdetail
+        where Comment_Result_Guid = #{commentResultGuid}
+    </delete>
+    <delete id="delCommentResult" parameterType="string">
+        delete from t_a_commentresult
+        where project_Guid = #{projectGuid}
+    </delete>
+
+    <delete id="delCommentResultPrice" parameterType="string">
+        delete from t_a_commentresultprice where Comment_ResultDetail_Guid = #{commentResultDetailGuid}
+    </delete>
+
+    <select id="getCommentResult" resultType="integer" parameterType="string">
+        select count(1) from t_a_commentresult where Comment_Result_Guid = #{commentResultGuid}
+    </select>
+    <select id="getCommentResultList" resultType="java.lang.String" parameterType="string">
+        select Comment_Result_Guid from t_a_commentresult where project_Guid = #{projectGuid}
+    </select>
+
+    <select id="getCommentResultDetailGuids" resultType="java.lang.String" parameterType="string">
+        select Comment_ResultDetail_Guid from t_a_commentresultdetail where Comment_Result_Guid = #{commentResuletGuid}
+    </select>
+
+    <update id="updateCommentResult" parameterType="com.mk.business.commentresult.model.CommentResult">
+        update t_a_commentresult
+        set project_Guid = #{projectGuid},
+        bidItem_Guid = #{bidItemGuid},Calculate_Type = #{calculateType},
+        Cut_Ceil_Floor = #{cutCeilFloor},Is_Succeed = #{isSucceed},
+        PurIs_Succeed = #{purIsSucceed},Fail_Reason = #{failReason},
+        PurFail_Reason = #{purFailReason}
+        where Comment_Result_Guid = #{commentResultGuid}
+    </update>
+
+    <insert id="insertCommentResult" parameterType="com.mk.business.commentresult.model.CommentResult">
+        insert into t_a_commentresult
+        (Comment_Result_Guid, project_Guid, bidItem_Guid, Calculate_Type,
+         Cut_Ceil_Floor, Is_Succeed, PurIs_Succeed, Fail_Reason, PurFail_Reason)
+         values (
+         #{commentResultGuid},#{projectGuid},#{bidItemGuid},#{calculateType},
+         #{cutCeilFloor},#{isSucceed},#{purIsSucceed},#{failReason},#{purFailReason}
+         )
+    </insert>
+
+    <insert id="insertCommentResultDetail" parameterType="com.mk.business.commentresult.model.CommentResultDetail">
+        insert into t_a_commentresultdetail
+        (Comment_ResultDetail_Guid, Comment_Result_Guid, Response_Guid, Is_Hit, Sort,
+         Last_Price, Price_Value, Credit_Value, Expert_Value, Sum_Value, Is_Conform)
+         values (
+         #{commentResultDetailGuid},#{commentResultGuid},#{responseGuid},#{isHit},#{sort},
+         #{lastPrice},#{priceValue},#{creditValue},#{expertValue},#{sumValue},#{isConform}
+         )
+    </insert>
+
+</mapper>

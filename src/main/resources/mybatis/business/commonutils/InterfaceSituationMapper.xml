@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.commonutils.dao.InterfaceSituationDao">
+
+  <insert id="insertInterfacesituation" parameterType="com.mk.business.commonutils.dao.InterfaceSituationDao">
+      INSERT INTO t_interface_situation (
+          Interface_Situation_Guid,
+          Interface_Name,
+          Interface_Url,
+          Interface_Date,
+          Interface_State,
+          Interface_Situation,
+          Interface_Desc
+      )
+      VALUES
+          (#{interfaceSituationGuid,jdbcType=VARCHAR},
+           #{interfaceName,jdbcType=VARCHAR},
+           #{interfaceUrl,jdbcType=VARCHAR},
+           #{interfaceDate,jdbcType=VARCHAR},
+           #{interfaceState,jdbcType=VARCHAR},
+           #{interfaceSituation,jdbcType=VARCHAR},
+           #{interfaceDesc,jdbcType=VARCHAR}
+        )
+  </insert>
+</mapper>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.zcyBuyplan.dao.ZcyBuyplanDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.zcyBuyplan.model.ZcyBuyplan">
+    <id column="Purchaseplan_Id" jdbcType="VARCHAR" property="purchaseplanId" />
+    <result column="Financial_Purchaseplan_Id" jdbcType="VARCHAR" property="financialPurchaseplanId" />
+    <result column="Purchaser_Org_Name" jdbcType="VARCHAR" property="purchaserOrgName" />
+    <result column="Purchaser_Org_Budget_Code" jdbcType="VARCHAR" property="purchaserOrgBudgetCode" />
+    <result column="Status" jdbcType="VARCHAR" property="status" />
+    <result column="Total_Amount" jdbcType="DECIMAL" property="totalAmount" />
+    <result column="Procurement_Method" jdbcType="VARCHAR" property="procurementMethod" />
+    <result column="Is_Commit" jdbcType="INTEGER" property="isCommit" />
+    <result column="District_Code" jdbcType="VARCHAR" property="districtCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Purchaseplan_Id, Financial_Purchaseplan_Id, Purchaser_Org_Name, Purchaser_Org_Budget_Code, 
+    `Status`, Total_Amount, Procurement_Method, Is_Commit, District_Code, Data_Resource
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_zcy_buyplan
+    where Purchaseplan_Id = #{purchaseplanId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_zcy_buyplan
+    where Purchaseplan_Id = #{purchaseplanId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="Purchaseplan_Id" keyProperty="purchaseplanId" parameterType="com.mk.business.zcyBuyplan.model.ZcyBuyplan" useGeneratedKeys="true">
+    insert into t_zcy_buyplan (Purchaseplan_Id,Financial_Purchaseplan_Id, Purchaser_Org_Name,
+      Purchaser_Org_Budget_Code, `Status`, Total_Amount, 
+      Procurement_Method, Is_Commit, District_Code, 
+      Data_Resource)
+    values (#{purchaseplanId,jdbcType=VARCHAR},#{financialPurchaseplanId,jdbcType=VARCHAR}, #{purchaserOrgName,jdbcType=VARCHAR},
+      #{purchaserOrgBudgetCode,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{totalAmount,jdbcType=DECIMAL}, 
+      #{procurementMethod,jdbcType=VARCHAR}, #{isCommit,jdbcType=INTEGER}, #{districtCode,jdbcType=VARCHAR}, 
+      #{dataResource,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="Purchaseplan_Id" keyProperty="purchaseplanId" parameterType="com.mk.business.zcyBuyplan.model.ZcyBuyplan" useGeneratedKeys="true">
+    insert into t_zcy_buyplan
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="financialPurchaseplanId != null">
+        Financial_Purchaseplan_Id,
+      </if>
+      <if test="purchaserOrgName != null">
+        Purchaser_Org_Name,
+      </if>
+      <if test="purchaserOrgBudgetCode != null">
+        Purchaser_Org_Budget_Code,
+      </if>
+      <if test="status != null">
+        `Status`,
+      </if>
+      <if test="totalAmount != null">
+        Total_Amount,
+      </if>
+      <if test="procurementMethod != null">
+        Procurement_Method,
+      </if>
+      <if test="isCommit != null">
+        Is_Commit,
+      </if>
+      <if test="districtCode != null">
+        District_Code,
+      </if>
+      <if test="dataResource != null">
+        Data_Resource,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="financialPurchaseplanId != null">
+        #{financialPurchaseplanId,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaserOrgName != null">
+        #{purchaserOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaserOrgBudgetCode != null">
+        #{purchaserOrgBudgetCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmount != null">
+        #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="procurementMethod != null">
+        #{procurementMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="isCommit != null">
+        #{isCommit,jdbcType=INTEGER},
+      </if>
+      <if test="districtCode != null">
+        #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataResource != null">
+        #{dataResource,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mk.business.zcyBuyplan.model.ZcyBuyplan">
+    update t_zcy_buyplan
+    <set>
+      <if test="financialPurchaseplanId != null">
+        Financial_Purchaseplan_Id = #{financialPurchaseplanId,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaserOrgName != null">
+        Purchaser_Org_Name = #{purchaserOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaserOrgBudgetCode != null">
+        Purchaser_Org_Budget_Code = #{purchaserOrgBudgetCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `Status` = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmount != null">
+        Total_Amount = #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="procurementMethod != null">
+        Procurement_Method = #{procurementMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="isCommit != null">
+        Is_Commit = #{isCommit,jdbcType=INTEGER},
+      </if>
+      <if test="districtCode != null">
+        District_Code = #{districtCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataResource != null">
+        Data_Resource = #{dataResource,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Purchaseplan_Id = #{purchaseplanId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mk.business.zcyBuyplan.model.ZcyBuyplan">
+    update t_zcy_buyplan
+    set Financial_Purchaseplan_Id = #{financialPurchaseplanId,jdbcType=VARCHAR},
+      Purchaser_Org_Name = #{purchaserOrgName,jdbcType=VARCHAR},
+      Purchaser_Org_Budget_Code = #{purchaserOrgBudgetCode,jdbcType=VARCHAR},
+      `Status` = #{status,jdbcType=VARCHAR},
+      Total_Amount = #{totalAmount,jdbcType=DECIMAL},
+      Procurement_Method = #{procurementMethod,jdbcType=VARCHAR},
+      Is_Commit = #{isCommit,jdbcType=INTEGER},
+      District_Code = #{districtCode,jdbcType=VARCHAR},
+      Data_Resource = #{dataResource,jdbcType=VARCHAR}
+    where Purchaseplan_Id = #{purchaseplanId,jdbcType=VARCHAR}
+  </update>
+</mapper>

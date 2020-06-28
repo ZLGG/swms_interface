@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.commonutils.dao.GuidConverterDao">
+
+    <select id="getGuidByCodeAndResource" resultType="java.util.Map">
+        select * from ${tableName}
+        where Interface_Code = #{interfaceCode,jdbcType=VARCHAR} and Data_Resource = #{dataResource,jdbcType=VARCHAR}
+    </select>
+</mapper>

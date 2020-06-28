@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.optiontype.dao.OptiontypeDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.optiontype.model.Optiontype">
+    <!--@mbg.generated generated on Wed Apr 08 15:26:40 CST 2020.-->
+    <id column="Option_Type_Guid" jdbcType="VARCHAR" property="optionTypeGuid" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Valid" jdbcType="DECIMAL" property="valid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Apr 08 15:26:40 CST 2020.-->
+    Option_Type_Guid, Code, `Name`, `Valid`
+  </sql>
+</mapper>

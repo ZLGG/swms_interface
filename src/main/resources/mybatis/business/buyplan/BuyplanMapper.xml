@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.buyplan.dao.BuyplanDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.buyplan.model.Buyplan">
+    <!--@mbg.generated generated on Tue Apr 14 19:01:05 CST 2020.-->
+    <!--@Table t_a_buyplan-->
+    <id column="BuyPlan_Guid" jdbcType="VARCHAR" property="buyplanGuid" />
+    <result column="BuyPlan_Archive_Code" jdbcType="VARCHAR" property="buyplanArchiveCode" />
+    <result column="BuyPlan_Code" jdbcType="VARCHAR" property="buyplanCode" />
+    <result column="Region_Guid" jdbcType="VARCHAR" property="regionGuid" />
+    <result column="Year" jdbcType="DECIMAL" property="year" />
+    <result column="Org_Guid" jdbcType="VARCHAR" property="orgGuid" />
+    <result column="Finance_Dept_Guid" jdbcType="VARCHAR" property="financeDeptGuid" />
+    <result column="Kind" jdbcType="VARCHAR" property="kind" />
+    <result column="PurCatalog_Type" jdbcType="VARCHAR" property="purcatalogType" />
+    <result column="Platform_Type_Guid" jdbcType="VARCHAR" property="platformTypeGuid" />
+    <result column="Platform_Guid" jdbcType="VARCHAR" property="platformGuid" />
+    <result column="Is_Direct_Buy" jdbcType="DECIMAL" property="isDirectBuy" />
+    <result column="PurMethod" jdbcType="VARCHAR" property="purmethod" />
+    <result column="BuyPlan_Money" jdbcType="DECIMAL" property="buyplanMoney" />
+    <result column="Create_Date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="Archive_Date" jdbcType="TIMESTAMP" property="archiveDate" />
+    <result column="Agent_Guid" jdbcType="VARCHAR" property="agentGuid" />
+    <result column="Agent_Code" jdbcType="VARCHAR" property="agentCode" />
+    <result column="Agent_Name" jdbcType="VARCHAR" property="agentName" />
+    <result column="Agent_Type" jdbcType="VARCHAR" property="agentType" />
+    <result column="Imports" jdbcType="DECIMAL" property="imports" />
+    <result column="PPP" jdbcType="DECIMAL" property="ppp" />
+    <result column="Secret" jdbcType="DECIMAL" property="secret" />
+    <result column="Plan_Create_Type" jdbcType="VARCHAR" property="planCreateType" />
+    <result column="Buy_Plan_Style" jdbcType="VARCHAR" property="buyPlanStyle" />
+    <result column="Biz_Valid" jdbcType="INTEGER" property="bizValid" />
+    <result column="Biz_Time_Stamp" jdbcType="TIMESTAMP" property="bizTimeStamp" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+    <result  column="Biz_Date" jdbcType="DATE" property="bizDate"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Tue Apr 14 19:01:05 CST 2020.-->
+    BuyPlan_Guid, BuyPlan_Archive_Code, BuyPlan_Code, Region_Guid, `Year`, Org_Guid,
+    Finance_Dept_Guid, Kind, PurCatalog_Type, Platform_Type_Guid, Platform_Guid, Is_Direct_Buy,
+    PurMethod, BuyPlan_Money, Create_Date, Archive_Date, Agent_Guid, Agent_Code, Agent_Name,
+    Agent_Type, Imports, PPP, Secret, Plan_Create_Type, Buy_Plan_Style, Biz_Valid, Biz_Time_Stamp,
+    Interface_Code, Data_Resource, bizDate
+  </sql>
+
+  <select id="getBuyplan" parameterType="map" resultType="int">
+       select count(1) from t_a_buyplan where Interface_Code =#{interfaceCode} and Data_Resource= #{dataResource}
+  </select>
+</mapper>

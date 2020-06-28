@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.acceptance.dao.AcceptanceDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.acceptance.model.Acceptance">
+    <!--@mbg.generated generated on Tue Apr 07 19:16:19 CST 2020.-->
+    <id column="Acceptance_Guid" jdbcType="VARCHAR" property="acceptanceGuid" />
+    <result column="Acceptance_Code" jdbcType="VARCHAR" property="acceptanceCode" />
+    <result column="Region_Guid" jdbcType="VARCHAR" property="regionGuid" />
+    <result column="Year" jdbcType="DECIMAL" property="year" />
+    <result column="Org_Guid" jdbcType="VARCHAR" property="orgGuid" />
+    <result column="Finance_Dept_Guid" jdbcType="VARCHAR" property="financeDeptGuid" />
+    <result column="Contract_Guid" jdbcType="VARCHAR" property="contractGuid" />
+    <result column="Pay_Money" jdbcType="DECIMAL" property="payMoney" />
+    <result column="Plan_Acceptance_Date" jdbcType="TIMESTAMP" property="planAcceptanceDate" />
+    <result column="Is_Simple" jdbcType="VARCHAR" property="isSimple" />
+    <result column="Acceptance_Type" jdbcType="VARCHAR" property="acceptanceType" />
+    <result column="Agent_Guid" jdbcType="VARCHAR" property="agentGuid" />
+    <result column="Agent_Code" jdbcType="VARCHAR" property="agentCode" />
+    <result column="Agent_Name" jdbcType="VARCHAR" property="agentName" />
+    <result column="Actual_Acceptance_Date" jdbcType="TIMESTAMP" property="actualAcceptanceDate" />
+    <result column="Verdict_State" jdbcType="VARCHAR" property="verdictState" />
+    <result column="Org_Opinion" jdbcType="VARCHAR" property="orgOpinion" />
+    <result column="Assessors_Name" jdbcType="VARCHAR" property="assessorsName" />
+    <result column="Biz_Valid" jdbcType="INTEGER" property="bizValid" />
+    <result column="Biz_Time_Stamp" jdbcType="TIMESTAMP" property="bizTimeStamp" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+    <result column="Biz_Date" jdbcType="DATE" property="bizDate"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Tue Apr 07 19:16:19 CST 2020.-->
+    Acceptance_Guid, Acceptance_Code, Region_Guid, `Year`, Org_Guid, Finance_Dept_Guid,
+    Contract_Guid, Pay_Money, Plan_Acceptance_Date, Is_Simple, Acceptance_Type, Agent_Guid,
+    Agent_Code, Agent_Name, Actual_Acceptance_Date, Verdict_State, Org_Opinion, Assessors_Name,
+    Biz_Valid, Biz_Time_Stamp, Interface_Code, Data_Resource, bizDate
+  </sql>
+</mapper>

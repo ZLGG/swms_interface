@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.buyitem.dao.BuyitemconfirmDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.buyitem.model.Buyitemconfirm">
+    <!--@mbg.generated generated on Tue Apr 14 15:52:43 CST 2020.-->
+    <!--@Table t_a_buyitemconfirm-->
+    <id column="Buyitem_Confirm_Guid" jdbcType="VARCHAR" property="buyitemConfirmGuid" />
+    <result column="BuyItem_Guid" jdbcType="VARCHAR" property="buyitemGuid" />
+    <result column="Money" jdbcType="DECIMAL" property="money" />
+    <result column="Confirm_Date" jdbcType="TIMESTAMP" property="confirmDate" />
+    <result column="Biz_Valid" jdbcType="INTEGER" property="bizValid" />
+    <result column="Biz_Time_Stamp" jdbcType="TIMESTAMP" property="bizTimeStamp" />
+    <result column="Interface_Code" jdbcType="VARCHAR" property="interfaceCode" />
+    <result column="Data_Resource" jdbcType="VARCHAR" property="dataResource" />
+    <result column="Biz_Date" jdbcType="DATE" property="bizDate"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Tue Apr 14 15:52:43 CST 2020.-->
+    Buyitem_Confirm_Guid, BuyItem_Guid, Money, Confirm_Date, Biz_Valid,
+    Biz_Time_Stamp, Interface_Code, Data_Resource, bizDate
+  </sql>
+
+
+</mapper>

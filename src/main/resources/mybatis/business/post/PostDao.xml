@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.post.dao.PostDao">
+  <resultMap id="BaseResultMap" type="com.mk.business.post.model.Post">
+    <!--@mbg.generated generated on Fri May 15 16:56:20 CST 2020.-->
+    <!--@Table t_post-->
+    <id column="Post_Guid" jdbcType="VARCHAR" property="postGuid" />
+    <result column="Post_Name" jdbcType="VARCHAR" property="postName" />
+    <result column="Post_Type" jdbcType="VARCHAR" property="postType" />
+    <result column="D_Order" jdbcType="DECIMAL" property="dOrder" />
+    <result column="Valid" jdbcType="INTEGER" property="valid" />
+    <result column="Modi_User" jdbcType="VARCHAR" property="modiUser" />
+    <result column="Modi_Date" jdbcType="TIMESTAMP" property="modiDate" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Fri May 15 16:56:20 CST 2020.-->
+    Post_Guid, Post_Name, Post_Type, D_Order, `Valid`, Modi_User, Modi_Date, Remark
+  </sql>
+</mapper>

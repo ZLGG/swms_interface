@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.business.bidexpert.dao.BidExpertDao">
+
+    <insert id="insert" parameterType="com.mk.business.bidexpert.model.BidExpert">
+        insert into t_a_bidexpert
+        (Bid_Expert_Guid, project_Guid, bidItem_Guid, Expert_Guid,
+        Cert_Code, Name, Unit_Name, Phone, Expert_Category, Is_Team_Leader, Is_Owner_Representative,Interface_Code,Data_Resource)
+         values (#{bidExpertGuid},#{projectGuid},#{bidItemGuid},#{expertGuid},#{certCode},#{name},
+         #{unitName},#{phone},#{expertCategory},#{isTeamLeader},#{isOwnerRepresentative},#{interfaceCode},#{dataResource}
+         );
+    </insert>
+    <update id="updateBidExpert" parameterType="com.mk.business.bidexpert.model.BidExpert">
+        update t_a_bidexpert set
+        project_Guid = #{projectGuid},bidItem_Guid = #{bidItemGuid},
+         Expert_Guid = #{expertGuid},Cert_Code = #{certCode},Name = #{name},
+         Unit_Name = #{unitName},Phone = #{phone},Expert_Category = #{expertCategory},
+         Is_Team_Leader = #{isTeamLeader},Is_Owner_Representative = #{isOwnerRepresentative},Interface_Code = #{interfaceCode},Data_Resource = #{dataResource}
+         where Bid_Expert_Guid = #{bidExpertGuid};
+    </update>
+
+    <delete id="delBidExpertByProjectGuid" parameterType="string">
+        delete from t_a_bidexpert where project_Guid = #{projectGuid}
+    </delete>
+
+    <delete id="delNonexistentbidExpert">
+        delete from t_a_commentindex where Project_Guid = #{projectGuid} and Data_Resource = #{dataResource}
+        and Interface_Code not in
+        <foreach collection="bidExpertInterfaceCodes" close=")" open="(" separator="," item="bidExpertInterfaceCode">
+            #{bidExpertInterfaceCode}
+        </foreach>
+    </delete>
+
+    <delete id="delAllbidExpertByProject">
+        delete from t_a_bidexpert where Project_Guid = #{projectGuid}
+    </delete>
+
+    <select id="getBidExpert" resultType="integer" parameterType="string">
+        select count(1) from t_a_bidexpert
+        where Bid_Expert_Guid = #{bidExpertGuid};
+    </select>
+    <select id="getBidExpertByInterfaceCode" resultType="com.mk.business.bidexpert.model.BidExpert" parameterType="map">
+        select * from t_a_bidexpert where Interface_Code = #{interfaceCode} and Data_Resource = #{dataResource}
+    </select>
+
+    <select id="getBidExpertByProjectGuid" parameterType="string" resultType="string">
+        select Bid_Expert_Guid from t_a_bidexpert where project_Guid = #{projectGuid}
+    </select>
+    <select id="getExpert" resultType="java.lang.String" parameterType="string">
+        select Expert_Guid from t_d_expert where Expert_Guid = #{expertGuid}
+    </select>
+</mapper>
