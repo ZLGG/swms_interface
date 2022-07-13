@@ -156,7 +156,7 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http</artifactId>
-            <version>2.6.5</version>
+            <version>2.6.7</version>
         </dependency>
 
         <!--Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。-->
